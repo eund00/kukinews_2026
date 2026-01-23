@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="ko">
+      <head>
+        <meta charset="UTF-8" />
+        <title>Simple Slider</title>
+        <style>
+          .slider {
+            position: relative;
+            width: 400px;
+            margin: 0 auto;
+          }
+
+          .viewport {
+            position: relative;
+            height: 200px;
+          }
+
+          .slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            background: #eee;
+            border: 1px solid #ccc;
+
+            opacity: 0;
+            transition: opacity 0.8s ease;
+          }
+
+          .slide._active {
+            opacity: 1;
+            z-index: 1;
+          }
+
+          button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+          }
+
+          .prev {
+            left: -50px;
+          }
+          .next {
+            right: -50px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="slider fade">
+          <button class="prev">◀</button>
+
+          <div class="viewport">
+            <div class="slide _active">1</div>
+            <div class="slide">2</div>
+            <div class="slide">3</div>
+          </div>
+
+          <button class="next">▶</button>
+        </div>
+
+        <script>
+          const slides = document.querySelectorAll(".slide");
+          const prevBtn = document.querySelector(".prev");
+          const nextBtn = document.querySelector(".next");
+
+          let index = 0;
+          const total = slides.length;
+
+          function updateSlide() {
+            slides.forEach((slide) => slide.classList.remove("_active"));
+            slides[index].classList.add("_active");
+          }
+
+          prevBtn.addEventListener("click", () => {
+            index = (index - 1 + total) % total;
+            updateSlide();
+          });
+
+          nextBtn.addEventListener("click", () => {
+            index = (index + 1) % total;
+            updateSlide();
+          });
+        </script>
+      </body>
+    </html>
+  </body>
+</html>

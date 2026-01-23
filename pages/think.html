@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쿠키뉴스 미디어 리터러시 평가 지표 및 가이드</title>
+    <!-- Tailwind CSS CDN 로드 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* 'Inter' 폰트를 기본으로 설정 */
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f7f7f7;
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start; /* 상단 정렬로 변경 */
+        justify-content: center;
+        padding: 2rem 1rem;
+      }
+      /* 커스텀 스타일: 테이블 헤더 색상 */
+      .header-bg {
+        background-color: "#2a6496"; /* 쿠키뉴스(국민일보) 느낌의 진한 파란색 계열 */
+        color: white;
+      }
+      /* 테이블 셀 패딩 조정 */
+      .table-cell-padding {
+        padding: 1rem 0.75rem;
+      }
+
+      /* 영양성분표 스타일 */
+      .nutrition-table {
+        /* 테두리 색상 변경: KN Chocolate Brown */
+        border: 2px solid #634b28;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      .nutrition-header {
+        /* 배경 및 하단 테두리 색상 변경: KN Chocolate Brown */
+        background-color: #634b28;
+        color: white;
+        font-size: 1.25rem; /* text-xl */
+        font-weight: 900; /* font-extrabold */
+        padding: 0.5rem;
+        text-align: left;
+        border-bottom: 5px solid #634b28;
+      }
+      .nutrition-serving {
+        /* 하단 테두리 색상 변경: KN Chocolate Brown */
+        border-bottom: 5px solid #634b28;
+        padding: 0.5rem 0.5rem;
+        font-size: 0.85rem;
+      }
+      .nutrition-row {
+        border-bottom: 1px solid #634b28; /* 기본 구분선 색상 변경 */
+      }
+      .nutrition-row.heavy {
+        border-bottom: 3px solid #634b28; /* 굵은 구분선 색상 변경 */
+      }
+
+      /* 복합 로우 (1열 형식) - 모든 항목에 사용 */
+      .nutrition-row.complex {
+        display: flex;
+        justify-content: space-between; /* 라벨과 내용을 양 끝으로 분리 */
+        align-items: center; /* 수직 중앙 정렬 */
+        padding: 0.5rem;
+        border-bottom: 1px solid #634b28; /* 구분선 색상 변경 */
+      }
+      .nutrition-row.complex .label {
+        min-width: 80px; /* 라벨 너비 고정 */
+        font-weight: 700;
+        color: #1f2937; /* gray-800 */
+        text-align: left; /* 라벨은 왼쪽 정렬 */
+        flex-shrink: 0; /* 라벨이 줄어들지 않도록 */
+        margin-right: 15px; /* 내용과의 간격 */
+      }
+      .nutrition-row.complex .content {
+        flex-grow: 1;
+        font-size: 0.9rem;
+        color: #374151; /* gray-700 */
+        text-align: right; /* 내용은 오른쪽 정렬 */
+      }
+      /* 주의사항, 섭취법 등 줄바꿈이 필요한 긴 내용은 오른쪽 정렬 유지 */
+      .nutrition-row.complex .content.long-text {
+        text-align: right; /* 줄바꿈은 포함되지만 전체는 오른쪽 끝에 붙임 */
+      }
+      /* 열량 폰트 크기 조정 */
+      .nutrition-row.complex .content.kcal {
+        font-size: 1rem;
+      }
+
+      /* Flexbox를 사용하여 이미지와 정보 영역의 높이를 고정값으로 맞추고 스크롤 가능하게 합니다. */
+      .product-section {
+        display: flex;
+        flex-direction: column;
+      }
+      @media (min-width: 1024px) {
+        .product-section {
+          flex-direction: row;
+          /* 부모 섹션이 최소 620px 높이를 유지하도록 */
+          min-height: 620px;
+        }
+      }
+      /* 이미지 영역의 높이를 명시적으로 지정하여 비정상적인 확장을 방지 */
+      .image-container {
+        height: 620px; /* 데스크톱에서 적절한 높이 고정 (600px -> 620px) */
+      }
+      /* 오른쪽 컨테이너 높이 고정 (왼쪽 이미지와 수평을 맞추기 위함) */
+      .info-container-height {
+        height: 620px; /* (600px -> 620px) */
+      }
+
+      @media (max-width: 1023px) {
+        .image-container {
+          height: 350px; /* 모바일에서 적절한 높이 */
+        }
+        .info-container-height {
+          height: auto; /* 모바일에서는 유동적으로 풀어줌 */
+        }
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        // !important를 사용하여 Tailwind 유틸리티 클래스가 최우선 적용되도록 설정
+        important: true,
+        theme: {
+          extend: {
+            colors: {
+              "kuki-blue": "#2a6496",
+              "kuki-light": "#f0f4f8",
+              "kuki-orange": "#FF9100" /* BI 공식 컬러 (KN Buscuit Orange) */,
+              "kuki-brown": "#634B28" /* BI 공식 컬러 (KN Chocolate Brown) */,
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div
+      class="w-full max-w-6xl bg-white shadow-2xl rounded-xl p-6 md:p-10 border border-gray-100 mb-12"
+    >
+      <!-- 타이틀 섹션 -->
+      <header class="mb-8 text-left border-b pb-4">
+        <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-1">
+          쿠키뉴스 오리지널 (Kuki Original)
+        </h1>
+        <p class="text-lg text-gray-500">
+          기사를 '상품'처럼 소비하는 새로운 방식
+        </p>
+      </header>
+
+      <!-- ---------------------------------------------------- -->
+      <!-- 1. 뉴스 기사 상품 페이지 레이아웃 (Market Kurly 컨셉) -->
+      <!-- ---------------------------------------------------- -->
+      <section class="product-section gap-8">
+        <!-- A. 왼쪽: 상품 이미지 (기사 메인 썸네일) -->
+        <div class="lg:w-1/2 flex-shrink-0">
+          <!-- 이미지 영역: 세로로 긴 썸네일 영역을 모방. image-container 클래스로 높이 고정 -->
+          <div
+            class="w-full image-container bg-gray-100 rounded-t-xl rounded-bl-xl overflow-hidden shadow-lg relative flex items-center justify-center"
+          >
+            <!-- KN 축약형 로고 (Shorten Logotype) SVG - 완전히 제거됨 -->
+
+            <!-- 기사 대표 이미지 (placeholder) - 배경색 처리 -->
+            <div
+              class="text-white text-3xl font-bold p-8 bg-kuki-blue/80 w-full h-full flex items-center justify-center text-center"
+            >
+              Kuki Original<br />기사 대표 이미지 영역
+            </div>
+            <div class="absolute inset-0 bg-black opacity-10"></div>
+          </div>
+        </div>
+
+        <!-- B. 오른쪽: 상품 정보 (기사 제목 및 뉴스 성분표) -->
+        <!-- 높이 고정 클래스 추가: info-container-height -->
+        <div
+          class="lg:w-1/2 pt-2 flex flex-col justify-start info-container-height border-b-2 border-kuki-brown md:rounded-tr-xl md:rounded-br-xl"
+        >
+          <!-- 오른쪽 섹션 콘텐츠를 flex-col로 감싸고, 성분표를 맨 아래로 밀기 위해 flex-grow를 사용 -->
+          <div class="flex flex-col h-full">
+            <!-- 상품명 (기사 제목) -->
+            <h2
+              class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-2"
+            >
+              1심 무죄 김범수 “카카오 주가조작 그늘 벗어날 수 있는 계기”
+            </h2>
+            <div class="mb-4 border-b pb-4"></div>
+            <!-- 경계선 유지를 위해 빈 div에 스타일 적용 -->
+
+            <!-- 추가 요청 문구: 폰트 크기/굵기, 간격 조정 -->
+            <!-- 폰트 색상을 KN Chocolate Brown으로 변경 -->
+            <div style="position: relative">
+              <div class="text-base !text-kuki-brown mt-1 mb-3 font-bold">
+                이 기사에는 다음의 재료와 과정이 들어갔습니다.<br />
+                정보를 확인하고, 균형 있는 시각으로 섭취해주세요.
+              </div>
+              <div id="book_icon" class="book_hover">
+                <img src="./img/kuki_1.png" alt="" />
+                <span class="txt">스크랩</span>
+              </div>
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                  const bookIcon = document.getElementById("book_icon");
+
+                  if (bookIcon) {
+                    bookIcon.addEventListener("click", function () {
+                      window.location.href = "scrap_note.html"; // 해당 파일로 이동
+                    });
+                  }
+                });
+              </script>
+              <style>
+                .book_hover {
+                  cursor: pointer;
+                  width: 55px;
+                  height: 55px;
+                  position: absolute;
+                  top: -6px;
+                  right: 0;
+                  margin-top: 0.25rem;
+                  padding: 5px;
+                  box-sizing: border-box;
+                  border-radius: 50%;
+                  transform: scale(1.2);
+                }
+                .book_hover img {
+                  height: 100%;
+                }
+                .book_hover .txt {
+                  position: absolute;
+                  top: 15px;
+                  left: 0;
+                  right: 0;
+                  text-align: center;
+                  font-weight: bold;
+                  color: #fff;
+                  display: none;
+                }
+                .book_hover:hover {
+                  background-color: #faae41;
+                }
+                .book_hover:hover img {
+                  opacity: 0;
+                }
+                .book_hover:hover .txt {
+                  display: block;
+                }
+              </style>
+            </div>
+
+            <!-- ---------------------------------------------------- -->
+            <!-- 기사 영양 성분표 (Article Nutritional Facts) - 간소화된 항목 적용 -->
+            <!-- ---------------------------------------------------- -->
+            <!-- 이 div가 flex-grow를 받아 하단에 붙도록 조정 -->
+            <div class="w-full flex-grow flex flex-col justify-end">
+              <div class="nutrition-table">
+                <div class="nutrition-header">
+                  뉴스 성분표 – Kuki Literacy 🍪
+                </div>
+                <div class="nutrition-serving">
+                  총 정보 분량 750단어 (1회 읽기 권장)
+                </div>
+
+                <!-- 원재료 (항목 좌, 내용 우 정렬) -->
+                <div class="nutrition-row complex heavy">
+                  <div class="label">원재료</div>
+                  <div class="content">
+                    공공데이터 / 현장취재 / 전문가 / SNS
+                  </div>
+                </div>
+
+                <!-- 가공방식 (항목 좌, 내용 우 정렬) -->
+                <div class="nutrition-row complex">
+                  <div class="label">가공방식</div>
+                  <div class="content">현장취재, 인터뷰, 사진 대조</div>
+                </div>
+
+                <!-- 함유량 (단일 로우로 통합, 항목 좌, 내용 우 정렬) -->
+                <div class="nutrition-row complex heavy">
+                  <div class="label">함유량</div>
+                  <div class="content font-bold">팩트 85% / 분석 15%</div>
+                </div>
+
+                <!-- 주의사항 (두 줄로 나눔, 항목 좌, 내용 우 정렬) -->
+                <div class="nutrition-row complex heavy">
+                  <div class="label">주의사항</div>
+                  <div class="content long-text">
+                    <span class="!text-red-600 font-bold"
+                      >일부 전문가의 견해는 특정 입장에 기반하며,<br />반대
+                      의견도 존재합니다.</span
+                    >
+                  </div>
+                </div>
+
+                <!-- 섭취법 (두 줄로 나눔 - 요청 반영, 항목 좌, 내용 우 정렬) -->
+                <div class="nutrition-row complex">
+                  <div class="label">섭취법</div>
+                  <div class="content long-text">
+                    다른 기사와 연결해 읽을 때,<br />더 깊이 있는 이해가
+                    가능합니다.
+                  </div>
+                </div>
+
+                <!-- 열량 (Insight) - 오렌지색으로 강조 (수정된 부분) -->
+                <div class="nutrition-row complex heavy">
+                  <!-- 라벨(열량)은 기본 검은색으로 되돌리고, 내용만 오렌지색 유지 -->
+                  <div class="label font-bold !text-gray-800">열량</div>
+                  <div class="content !text-kuki-orange font-bold kcal">
+                    100% Insight kcal
+                  </div>
+                </div>
+
+                <!-- 수정된 하단 문구: 링크 안내 -->
+                <div class="nutrition-serving pt-4">
+                  이 사안과 관련한 다양한 기사는 쿠키뉴스
+                  <a
+                    href="#"
+                    class="!text-kuki-orange font-bold hover:underline"
+                    >[링크]</a
+                  >에서 확인할 수 있습니다.
+                </div>
+              </div>
+            </div>
+            <!-- ---------------------------------------------------- -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------------------------------------- -->
+      <!-- 2. 기사 본문 영역 (스크롤로 내려와서 보는 부분) -->
+      <!-- ---------------------------------------------------- -->
+      <section class="mt-12 pt-6 border-t border-gray-300">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">
+          <span class="text-kuki-blue">Kuki Original 기사 전문</span>
+        </h2>
+        <div style="width: 80%; margin: 0 auto">
+          <img
+            src="https://kukinews.com/data/kuk/image/2025/10/21/kuk20251021000130.800x.0.jpg"
+            alt=""
+            style="width: 100%"
+          />
+          <span
+            style="
+              background-color: #ccc;
+              width: 100%;
+              display: block;
+              margin-bottom: 20px;
+              padding: 5px;
+              padding-left: 10px;
+            "
+            >김범수 카카오 경영쇄신위원장이 21일 서울 양천구
+            서울남부지방법원에서 열린 1심 선고 공판에 출석하고 있다. 유희태
+            기자</span
+          >
+        </div>
+        <div
+          class="text-gray-700 leading-relaxed space-y-6 text-lg p-4 border rounded-lg bg-white shadow-sm"
+          style="width: 75%; margin: 0 auto"
+        >
+          <p>
+            SM엔터테인먼트(SM) 시세 조종 의혹과 관련해 검찰 수사를 받아온 김범수
+            카카오 창업자가 1심 무죄를 선고받았다. 김 창업자는 “그동안 카카오에
+            드리워진 주가조작과 시세조종이라는 그늘에서 조금이나마 벗어날 수
+            있는 계기가 되었으면 좋겠다”라고 소회를 밝혔다.
+          </p>
+          <p>
+            21일 오전 서울남부지법 형사합의15부(재판장 양환승)는 자본시장법 위반
+            혐의로 기소된 김 창업자에게 무죄를 선고했다. 김 창업자는 “오랜 시간
+            꼼꼼히 자료를 챙겨봐주시고 이와 같은 결론에 이르게 해준 재판부에
+            진심으로 감사드린다”며 이같이 밝혔다.
+          </p>
+          <p>
+            김 창업자는 2023년 2월 SM을 인수하는 과정에서 하이브의 공개매수를
+            방해하기 위해 공개 매수가보다 높게 설정‧고정하는 방식으로 시세를
+            조종한 혐의로 기소됐다. 이에 검찰은 양형 기준상 법정 최고형인 징역
+            15년과 벌금 5억원을 구형했다.
+          </p>
+          <p>
+            재판부는 “공소사실에 대한 핵심 증거인 이준호 전 카카오엔터
+            투자전략부문장의 진술은 신빙성이 없다”라며 “검사의 주장과 같은
+            긴밀한 경제적 이해관계가 있었다고 보기 어렵고, 설령 있다고 해도
+            시세조종범행을 공모했다는 사실의 근거나 배경이 될 수 없다”고 했다.
+          </p>
+          <p>
+            이어 “카카오가 SM 경영권 인수가 반드시 필요한 상황이었다고 단정하기
+            어렵다”라며 “SM 주식 매수 당시 주가, 거래량의 동향, 매수 시점과 방식
+            등을 볼 때 시세조종성 주문이라고 보기는 어렵다”고 덧붙였다.
+          </p>
+          <p>
+            카카오도 이번 재판 결과에 따라 시세조종을 한 부도덕한 기업이란
+            오해를 벗을 수 있을 것이란 입장이다. 또 2년 8개월간 이어진 수사와
+            재판으로 카카오 그룹은 어려움을 겪었으며 급격한 시장 변화에 대처하기
+            힘들었다고 호소했다.
+          </p>
+          <p>
+            카카오 측은 “1심 무죄 선고로 그러한 오해가 부적절하였음이 확인된
+            것이라 이해한다”라며 “SM 인수 과정에서 김 창업자를 비롯한 카카오
+            임직원 누구도 위법적 행위를 논의하거나 도모한 바 없다”고 강조했다.
+          </p>
+          <p>
+            같은 혐의로 기소된 배재현 전 카카오 투자총괄대표와 홍은택 전 카카오
+            대표, 김성수 전 카카오엔터 대표 등도 무죄를 선고받았다. 다만 지창배
+            원아시아파트너스 대표는 펀드 출자자들의 신뢰를 배신해 집합투자재산을
+            개인적인 용도로 사용한 사안으로 징역 3년, 집행유예 4년을 선고했다.
+          </p>
+          <div
+            style="
+              border-left: 1px solid #ccc;
+              padding-left: 20px;
+              margin: 20px 0;
+            "
+          >
+            <p>
+              <span style="font-weight: bold">정우진</span> 기자
+              <span style="margin-left: 5px">jwj3937@kukinews.com</span>
+            </p>
+          </div>
+          <p class="copyright">Copyright © KUKINEWS. All Rights Reserved.</p>
+        </div>
+      </section>
+
+      <!-- ---------------------------------------------------- -->
+      <!-- 3. 미디어 리터러시 평가 지표 (기존 기능 유지) -->
+      <!-- ---------------------------------------------------- -->
+      <section class="mt-12 pt-6 border-t-2 border-kuki-blue/50">
+        <h2 class="text-xl font-bold text-kuki-blue mb-4">
+          <span class="text-gray-500 font-normal">Step 4.</span> 기사 읽기 후
+          자기 평가하기
+        </h2>
+        <div class="overflow-x-auto rounded-lg border border-gray-200">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="header-bg">
+              <tr>
+                <th
+                  scope="col"
+                  class="py-3.5 px-4 text-left text-sm font-semibold uppercase tracking-wider"
+                >
+                  평가 영역
+                </th>
+                <th
+                  scope="col"
+                  class="py-3.5 px-4 text-left text-sm font-semibold uppercase tracking-wider"
+                >
+                  세부 지표 (기준)
+                </th>
+                <th
+                  scope="col"
+                  class="py-3.5 px-4 text-center text-sm font-semibold uppercase tracking-wider w-20"
+                >
+                  배점
+                </th>
+                <th
+                  scope="col"
+                  class="py-3.5 px-4 text-center text-sm font-semibold uppercase tracking-wider w-24"
+                >
+                  자기 평가
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
+              <!-- 1. 정보 이해력 영역 -->
+              <tr class="hover:bg-kuki-light transition duration-150">
+                <td
+                  rowspan="2"
+                  class="table-cell-padding font-bold text-gray-900 bg-kuki-light/50 border-r border-gray-200 text-center align-top pt-4"
+                >
+                  정보 이해력
+                  <p class="text-xs font-normal mt-1 text-gray-500">
+                    (Comprehension)
+                  </p>
+                </td>
+                <td class="table-cell-padding text-sm text-gray-700">
+                  뉴스 기사의 제목과 본문 내용의 일치 여부를 정확히 파악할 수
+                  있는가?
+                </td>
+                <td
+                  class="table-cell-padding text-sm text-gray-700 text-center"
+                >
+                  10점
+                </td>
+                <td class="table-cell-padding text-center">
+                  <input
+                    type="number"
+                    min="0"
+                    max="10"
+                    value="0"
+                    class="w-16 p-1 border rounded text-center text-sm focus:border-kuki-blue focus:ring-1 focus:ring-kuki-blue/50"
+                  />
+                </td>
+              </tr>
+              <tr class="hover:bg-kuki-light transition duration-150">
+                <td class="table-cell-padding text-sm text-gray-700">
+                  기사에 제시된 사실(Fact)과 의견(Opinion)을 구분할 수 있는가?
+                </td>
+                <td
+                  class="table-cell-padding text-sm text-gray-700 text-center"
+                >
+                  10점
+                </td>
+                <td class="table-cell-padding text-center">
+                  <input
+                    type="number"
+                    min="0"
+                    max="10"
+                    value="0"
+                    class="w-16 p-1 border rounded text-center text-sm focus:border-kuki-blue focus:ring-1 focus:ring-kuki-blue/50"
+                  />
+                </td>
+              </tr>
+
+              <!-- 2. 비판적 사고 영역 -->
+              <tr class="hover:bg-kuki-light transition duration-150">
+                <td
+                  rowspan="2"
+                  class="table-cell-padding font-bold text-gray-900 bg-kuki-light/50 border-r border-gray-200 text-center align-top pt-4"
+                >
+                  비판적 사고
+                  <p class="text-xs font-normal mt-1 text-gray-500">
+                    (Critical Thinking)
+                  </p>
+                </td>
+                <td class="table-cell-padding text-sm text-gray-700">
+                  제시된 정보의 출처(Source)가 신뢰할 만한지 검증할 수 있는가?
+                </td>
+                <td
+                  class="table-cell-padding text-sm text-gray-700 text-center"
+                >
+                  15점
+                </td>
+                <td class="table-cell-padding text-center">
+                  <input
+                    type="number"
+                    min="0"
+                    max="15"
+                    value="0"
+                    class="w-16 p-1 border rounded text-center text-sm focus:border-kuki-blue focus:ring-1 focus:ring-kuki-blue/50"
+                  />
+                </td>
+              </tr>
+              <tr class="hover:bg-kuki-light transition duration-150">
+                <td class="table-cell-padding text-sm text-gray-700">
+                  다양한 관점의 뉴스(정파성, 중립성 등)를 비교하며 편향성을
+                  인지할 수 있는가?
+                </td>
+                <td
+                  class="table-cell-padding text-sm text-gray-700 text-center"
+                >
+                  15점
+                </td>
+                <td class="table-cell-padding text-center">
+                  <input
+                    type="number"
+                    min="0"
+                    max="15"
+                    value="0"
+                    class="w-16 p-1 border rounded text-center text-sm focus:border-kuki-blue focus:ring-1 focus:ring-kuki-blue/50"
+                  />
+                </td>
+              </tr>
+
+              <!-- 3. 정보 활용 및 소통 능력 영역 -->
+              <tr class="hover:bg-kuki-light transition duration-150">
+                <td
+                  rowspan="2"
+                  class="table-cell-padding font-bold text-gray-900 bg-kuki-light/50 border-r border-gray-200 text-center align-top pt-4"
+                >
+                  정보 활용 및 소통
+                  <p class="text-xs font-normal mt-1 text-gray-500">
+                    (Application & Communication)
+                  </p>
+                </td>
+                <td class="table-cell-padding text-sm text-gray-700">
+                  오보나 가짜 뉴스를 발견했을 때 적절한 대응 방법을 알고 실천할
+                  수 있는가?
+                </td>
+                <td
+                  class="table-cell-padding text-sm text-gray-700 text-center"
+                >
+                  25점
+                </td>
+                <td class="table-cell-padding text-center">
+                  <input
+                    type="number"
+                    min="0"
+                    max="25"
+                    value="0"
+                    class="w-16 p-1 border rounded text-center text-sm focus:border-kuki-blue focus:ring-1 focus:ring-kuki-blue/50"
+                  />
+                </td>
+              </tr>
+              <tr class="hover:bg-kuki-light transition duration-150">
+                <td class="table-cell-padding text-sm text-gray-700">
+                  디지털 환경에서 타인을 존중하며 건전하게 의견을 개진할 수
+                  있는가?
+                </td>
+                <td
+                  class="table-cell-padding text-sm text-gray-700 text-center"
+                >
+                  25점
+                </td>
+                <td class="table-cell-padding text-center">
+                  <input
+                    type="number"
+                    min="0"
+                    max="25"
+                    value="0"
+                    class="w-16 p-1 border rounded text-center text-sm focus:border-kuki-blue focus:ring-1 focus:ring-kuki-blue/50"
+                  />
+                </td>
+              </tr>
+
+              <!-- 합계 로우 -->
+              <tr class="bg-gray-100 font-bold">
+                <td
+                  colspan="2"
+                  class="table-cell-padding text-right text-base text-gray-900 pr-8"
+                >
+                  총점 (Total Score)
+                </td>
+                <td
+                  class="table-cell-padding text-base text-gray-900 text-center"
+                  id="totalMaxScore"
+                >
+                  100점
+                </td>
+                <td
+                  class="table-cell-padding text-base text-gray-900 text-center"
+                >
+                  <span id="currentScore">0</span>점
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 결과 버튼 및 메시지 박스 -->
+        <div
+          class="mt-8 flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <button
+            id="calculateBtn"
+            class="w-full md:w-auto px-6 py-3 bg-kuki-blue text-white font-semibold rounded-lg shadow-md hover:bg-kuki-blue/90 transition duration-200 transform hover:scale-105"
+          >
+            리터러시 점수 계산하기
+          </button>
+          <div
+            id="messageBox"
+            class="w-full md:w-2/3 p-3 bg-blue-100 border border-blue-300 text-blue-800 rounded-lg text-sm transition-opacity duration-300 opacity-0"
+          >
+            점수를 입력하고 '계산하기' 버튼을 눌러주세요.
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // JavaScript 로직: 점수 합계 계산 (기존 로직 유지)
+      document.addEventListener("DOMContentLoaded", () => {
+        const inputFields = document.querySelectorAll('input[type="number"]');
+        const currentScoreSpan = document.getElementById("currentScore");
+        const calculateBtn = document.getElementById("calculateBtn");
+        const messageBox = document.getElementById("messageBox");
+
+        // 초기 점수 업데이트
+        updateScore();
+
+        // 점수 입력 필드 변경 시 실시간 점수 업데이트
+        inputFields.forEach((input) => {
+          input.addEventListener("input", updateScore);
+        });
+
+        // "계산하기" 버튼 클릭 시 최종 결과 메시지 출력
+        calculateBtn.addEventListener("click", displayResult);
+
+        function updateScore() {
+          let totalScore = 0;
+          inputFields.forEach((input) => {
+            let score = parseInt(input.value) || 0;
+
+            // 최대 배점 제한 (HTML min/max 속성으로도 제한하지만 JS에서도 한번 더 체크)
+            const max = parseInt(input.max);
+            if (score > max) {
+              score = max;
+              input.value = max;
+            }
+            if (score < 0) {
+              score = 0;
+              input.value = 0;
+            }
+
+            totalScore += score;
+          });
+          currentScoreSpan.textContent = totalScore;
+        }
+
+        function displayResult() {
+          updateScore(); // 최종 점수 확인
+          const score = parseInt(currentScoreSpan.textContent);
+          let message = `최종 리터러시 점수는 ${score}점입니다.`;
+          let bgColor = "bg-green-100";
+          let borderColor = "border-green-300";
+          let textColor = "text-green-800";
+
+          if (score >= 90) {
+            message +=
+              " 당신은 미디어 리터러시 전문가입니다! 훌륭한 비판적 사고 능력을 갖추셨습니다.";
+            bgColor = "bg-yellow-100";
+            borderColor = "border-yellow-400";
+            textColor = "text-yellow-800";
+          } else if (score >= 70) {
+            message +=
+              " 좋은 수준의 리터러시 능력을 갖추셨습니다. 꾸준한 관심이 중요합니다.";
+            bgColor = "bg-blue-100";
+            borderColor = "border-blue-300";
+            textColor = "text-blue-800";
+          } else if (score >= 50) {
+            message +=
+              " 보통 수준입니다. 특히 비판적 사고 영역을 강화할 필요가 있습니다.";
+            bgColor = "bg-orange-100";
+            borderColor = "border-orange-300";
+            textColor = "text-orange-800";
+          } else {
+            message +=
+              " 미디어 리터러시 역량 강화가 시급합니다. 쿠키뉴스의 교육 콘텐츠를 참고해 보세요.";
+            bgColor = "bg-red-100";
+            borderColor = "border-red-300";
+            textColor = "text-red-800";
+          }
+
+          messageBox.className = `w-full md:w-2/3 p-3 ${bgColor} border ${borderColor} ${textColor} rounded-lg text-sm transition-opacity duration-300 opacity-100`;
+          messageBox.innerHTML = `<strong>${message}</strong>`;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>쿠키뉴스 심층기사</title>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1193d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              display: ["Newsreader"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Newsreader", serif;
+      }
+      .card_list {
+        row-gap: 60px !important;
+      }
+      .card_list .group {
+        position: relative;
+        padding-bottom: 20px;
+      }
+      .card_list .group a {
+      }
+      .card_list .group a > div.overflow-hidden {
+        height: 300px;
+      }
+      .card_list .group a > div > div {
+        height: 100%;
+      }
+      .kuki_des {
+        color: rgb(17 147 212 / var(--tw-text-opacity, 1));
+        letter-spacing: 0.05em;
+        font-weight: 600;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+      .kuki_tit {
+        color: rgb(23 23 23 / var(--tw-text-opacity, 1));
+        font-size: 1.25rem;
+        line-height: 1.25;
+        font-weight: 700;
+        margin: 0.5rem 0;
+        height: 25px;
+        overflow: hidden;
+      }
+      .kuki_tit:hover {
+        color: rgb(17 147 212 / var(--tw-text-opacity, 1));
+      }
+      .kuki_btn {
+        width: 100%;
+        padding: 0.25rem;
+        font-weight: 1.25rem;
+        color: #fff;
+        text-align: center;
+        background-color: #f19219;
+        border-radius: 0.25rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      .kuki_btn:hover {
+        font-weight: 600;
+      }
+      .kuki_img {
+        position: relative;
+      }
+      .kuki_img::after {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        content: "";
+        display: block;
+        width: 50px;
+        height: 50px;
+        background-image: url("./img/kuki_mark.png");
+        background-size: contain;
+        opacity: 0.85;
+      }
+    </style>
+  </head>
+  <body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+      <header
+        class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-black/10 dark:border-white/10"
+      >
+        <div
+          class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-3"
+        >
+          <div class="flex items-center gap-8">
+            <div
+              class="flex items-center gap-3 text-neutral-800 dark:text-neutral-200"
+            >
+              <svg
+                class="h-8 w-8 text-primary"
+                fill="none"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+              <h2
+                class="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white"
+              >
+                KUKINEWS
+              </h2>
+            </div>
+            <nav
+              class="hidden md:flex items-center gap-6 text-sm font-medium text-neutral-600 dark:text-neutral-400"
+            >
+              <a class="hover:text-primary transition-colors" href="#">Home</a>
+              <a class="hover:text-primary transition-colors" href="#">News</a>
+              <a class="text-primary font-semibold" href="#">Original</a>
+              <a class="hover:text-primary transition-colors" href="#">Video</a>
+              <a class="hover:text-primary transition-colors" href="#">Photo</a>
+              <a class="hover:text-primary transition-colors" href="#">Issue</a>
+            </nav>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="relative hidden sm:block">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500"
+                >search</span
+              >
+              <input
+                class="h-10 w-full min-w-[200px] rounded-full border border-neutral-300 dark:border-neutral-700 bg-background-light dark:bg-background-dark pl-10 pr-4 text-sm text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark"
+                placeholder="Search"
+                value=""
+              />
+            </div>
+            <button
+              class="flex h-10 w-10 items-center justify-center rounded-full text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 transition-colors"
+            >
+              <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <div
+              class="h-10 w-10 bg-center bg-no-repeat aspect-square bg-cover rounded-full"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBntZW8eh07fKFducCp9Cqi9cGyXlpVayJCkGTz_UhxMQ79GhoMD7BAtepUZD9s8kNpaKtgrObU3xheT-oHyY79_z3OUkHbQ7AmPJPFQWVymbofK2HM2Na8nAk_1ycFBcaifFFPFZU4QWQ3gNxFDJ4e_jc-DGq8w19X2_Rc9zi_zbggvYNxfl928cxAVzRuAfePCBxz5VZReTHCCP_EGl7LJElzXZrIk2deCMKkj3QyuA9S3NKRZWr2vgjApCS0458D8GDyykjk_JE');
+              "
+            ></div>
+          </div>
+        </div>
+      </header>
+      <main class="mx-auto max-w-6xl w-full px-4 sm:px-6 lg:px-8 py-10">
+        <div
+          class="relative bg-cover bg-center flex flex-col justify-end overflow-hidden rounded-xl min-h-[300px] p-8"
+          style="
+            background-position: revert;
+            background-image: linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.6) 0%,
+                rgba(0, 0, 0, 0) 40%
+              ),
+              url('https://kuk.kod.es/data/kuk/banner/kuk1641453895.5834.png');
+          "
+        >
+          <h1 class="text-white text-5xl font-bold tracking-tight">
+            🍪쿠키뉴스 심층기사
+          </h1>
+          <p class="text-white/80 mt-2 max-w-2xl text-lg">
+            해당 페이지는 쿠키뉴스에서 밀도 있게 다룬 기사들을 소개하고
+            있습니다.
+          </p>
+        </div>
+        <div
+          class="flex gap-2 p-3 mt-8 border-b border-neutral-200 dark:border-neutral-800 overflow-x-auto"
+        >
+          <button
+            class="flex h-9 shrink-0 items-center justify-center rounded-full bg-primary px-4 text-sm font-medium text-white"
+          >
+            전체
+          </button>
+          <button
+            class="flex h-9 shrink-0 items-center justify-center rounded-full bg-neutral-200/50 dark:bg-neutral-800/50 px-4 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors"
+          >
+            지금 우리 AI는
+          </button>
+          <button
+            class="flex h-9 shrink-0 items-center justify-center rounded-full bg-neutral-200/50 dark:bg-neutral-800/50 px-4 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors"
+          >
+            가짜 지원금의 덫
+          </button>
+          <button
+            class="flex h-9 shrink-0 items-center justify-center rounded-full bg-neutral-200/50 dark:bg-neutral-800/50 px-4 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors"
+          >
+            날개 잃은 장애인 고용
+          </button>
+          <button
+            class="flex h-9 shrink-0 items-center justify-center rounded-full bg-neutral-200/50 dark:bg-neutral-800/50 px-4 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors"
+          >
+            이상한 나라의 세대분리법
+          </button>
+          <button
+            class="flex h-9 shrink-0 items-center justify-center rounded-full bg-neutral-200/50 dark:bg-neutral-800/50 px-4 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors"
+          >
+            난임일기
+          </button>
+        </div>
+        <div
+          class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 card_list"
+        >
+          <!-- 1째 줄 -->
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/29/kuk20250929000376.600x.0.jpg');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[가짜 지원금의 덫①]</p>
+                <h3 class="kuki_tit">
+                  [단독] 中企·소상공인 울리는 ‘정책자금 컨설팅 사기’…석달 만에
+                  151건 적발
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/30/kuk20250930000355.800x.0.png');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[가짜 지원금의 덫②]</p>
+                <h3 class="kuki_tit">
+                  정책자금 컨설팅 사기, 구조적 한계로 뿌리 근절 난항…규제·법제화
+                  시급
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/25/kuk20250925000293.636x.0.jpg');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[날개 잃은 장애인 고용①]</p>
+                <h3 class="kuki_tit">
+                  [단독] 대한항공 등 항공사 9곳 ‘장애인 고용’ 돈으로 때웠다…작년
+                  부담금만 110억원
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/29/kuk20250929000296.jpg');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[날개 잃은 장애인 고용②]</p>
+                <h3 class="kuki_tit">
+                  [단독] 장애인 의무고용 3.1%인데…항공사 5년째 ‘1%대’ 제자리
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+
+          <!-- 2째 줄 -->
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/30/kuk20250930000264.559x.9.jpg');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[날개 잃은 장애인 고용③]</p>
+                <h3 class="kuki_tit">
+                  “얼어붙은 항공사 장애인 고용, 현행 제도 재정비 절실”
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2024/11/01/kuk20241101000372.800x.0.jpg');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[이상한 나라의 세대분리법①]</p>
+                <h3 class="kuki_tit">
+                  [단독] 한국만 못하는 ‘20대 세대분리’…복지부 “부모 지원 받지
+                  않나”
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2024/11/04/kuk20241104000338.800x.9.jpg');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[이상한 나라의 세대분리법②]</p>
+                <h3 class="kuki_tit">
+                  [단독] 한국만 못하는 ‘20대 세대분리’…복지부 “부모 지원 받지
+                  않나”
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2024/11/05/kuk20241105000314.701x.0.jpg');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[이상한 나라의 세대분리법③]</p>
+                <h3 class="kuki_tit">
+                  [단독] 세대분리법에 가로막힌 위기청년 7500여명…“통계 밖엔 더
+                  많아”
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+          <!-- 3째 줄 -->
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2024/11/06/kuk20241106000420.800x.9.jpg');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[이상한 나라의 세대분리법④]</p>
+                <h3 class="kuki_tit">
+                  ‘세대분리 신청=바늘구멍 통과하기’…특례 조항 있어도 유명무실
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2024/11/07/kuk20241107000402.800x.9.jpg');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[이상한 나라의 세대분리법⑤]</p>
+                <h3 class="kuki_tit">
+                  열일곱 대윤군의 6년 노숙, 세대분리법은 돕지 못했다
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2024/10/12/kuk20241012000056.800x.0.jpg');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[난임일기➀]</p>
+                <h3 class="kuki_tit">
+                  “아이만 가질 수 있다면”…부부 8쌍 중 1쌍 ‘난임’
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+          <article class="group">
+            <a href="./deep_detail.html">
+              <div class="kuki_img overflow-hidden rounded-lg">
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2024/10/14/kuk20241014000487.800x.0.jpg');
+                  "
+                ></div>
+              </div>
+              <div class="py-4">
+                <p class="kuki_des">🍪[난임일기②]</p>
+                <h3 class="kuki_tit">
+                  한 번의 ‘임신’이 있기까지…눈물로 지새는 난임 부부
+                </h3>
+                <a href="./scrap_note.html" class="kuki_btn">📖 스크랩</a>
+              </div>
+            </a>
+          </article>
+          <!-- end -->
+        </div>
+        <!-- 에디터의 픽 -->
+        <section class="mt-12">
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-6">
+            📌에디터의 픽!
+          </h2>
+          <div
+            class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 scrollbar-hide"
+          >
+            <article
+              class="relative flex-shrink-0 w-80 lg:w-96 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer group snap-center"
+            >
+              <a href="./deep_detail.html">
+                <div
+                  class="relative w-full h-64 sm:h-72 lg:h-80 bg-cover bg-center"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/08/12/kuk20250812000034.800x.9.jpg');
+                  "
+                >
+                  <div
+                    class="kuki_img absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                  ></div>
+                  <p
+                    class="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wider opacity-90"
+                  >
+                    EDITOR'S PICK
+                  </p>
+                </div>
+                <div class="p-4 bg-white dark:bg-neutral-800">
+                  <h3
+                    class="text-xl font-bold leading-tight text-neutral-900 dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    그들의 이야기를 잇는 사람들…광복 이래 韓 톺아본 KBS
+                  </h3>
+                  <p
+                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-400"
+                  >
+                    🍪[광복 80년 기획④]
+                  </p>
+                </div>
+              </a>
+            </article>
+            <article
+              class="relative flex-shrink-0 w-80 lg:w-96 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer group snap-center"
+            >
+              <a href="./deep_detail.html">
+                <div
+                  class="relative w-full h-64 sm:h-72 lg:h-80 bg-cover bg-center"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/08/28/kuk20250828000413.800x.0.jpg');
+                  "
+                >
+                  <div
+                    class="kuki_img absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                  ></div>
+                  <p
+                    class="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wider opacity-90"
+                  >
+                    EDITOR'S PICK
+                  </p>
+                </div>
+                <div class="p-4 bg-white dark:bg-neutral-800">
+                  <h3
+                    class="text-xl font-bold leading-tight text-neutral-900 dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    ‘3500억달러 펀드’…한국 반도체에 남는 것은
+                  </h3>
+                  <p
+                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-400"
+                  >
+                    🍪[K-반도체, 생존의 조건①]
+                  </p>
+                </div>
+              </a>
+            </article>
+            <article
+              class="relative flex-shrink-0 w-80 lg:w-96 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer group snap-center"
+            >
+              <a href="./deep_detail.html">
+                <div
+                  class="relative w-full h-64 sm:h-72 lg:h-80 bg-cover bg-center"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/08/01/kuk20250801000298.700x.0.png');
+                  "
+                >
+                  <div
+                    class="kuki_img absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                  ></div>
+                  <p
+                    class="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wider opacity-90"
+                  >
+                    EDITOR'S PICK
+                  </p>
+                </div>
+                <div class="p-4 bg-white dark:bg-neutral-800">
+                  <h3
+                    class="text-xl font-bold leading-tight text-neutral-900 dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    ‘현대판 돛’으로 친환경·효율 극대화…삼성중공업의 ‘윙
+                    세일·세이버윈드’
+                  </h3>
+                  <p
+                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-400"
+                  >
+                    🍪[탄소제로, 닻 올리다③]
+                  </p>
+                </div>
+              </a>
+            </article>
+            <article
+              class="relative flex-shrink-0 w-80 lg:w-96 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer group snap-center"
+            >
+              <a href="./deep_detail.html">
+                <div
+                  class="relative w-full h-64 sm:h-72 lg:h-80 bg-cover bg-center"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/08/19/kuk20250819000298.800x.0.jpg');
+                  "
+                >
+                  <div
+                    class="kuki_img absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                  ></div>
+                  <p
+                    class="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wider opacity-90"
+                  >
+                    EDITOR'S PICK
+                  </p>
+                </div>
+                <div class="p-4 bg-white dark:bg-neutral-800">
+                  <h3
+                    class="text-xl font-bold leading-tight text-neutral-900 dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    “업혀야 비행기 탑승” 공항 80% 리프트카 0대…교통약자에 닫힌
+                    하늘길
+                  </h3>
+                  <p
+                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-400"
+                  >
+                    🍪[불편한 공항①]
+                  </p>
+                </div>
+              </a>
+            </article>
+            <article
+              class="relative flex-shrink-0 w-80 lg:w-96 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer group snap-center"
+            >
+              <a href="./deep_detail.html">
+                <div
+                  class="relative w-full h-64 sm:h-72 lg:h-80 bg-cover bg-center"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/10/kuk20250910000498.697x.0.png');
+                  "
+                >
+                  <div
+                    class="kuki_img absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                  ></div>
+                  <p
+                    class="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wider opacity-90"
+                  >
+                    EDITOR'S PICK
+                  </p>
+                </div>
+                <div class="p-4 bg-white dark:bg-neutral-800">
+                  <h3
+                    class="text-xl font-bold leading-tight text-neutral-900 dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    “업계는 호황인데” 활력 잃은 조선 도시의 역설
+                  </h3>
+                  <p
+                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-400"
+                  >
+                    🍪[호황 활로에 선 지역①]
+                  </p>
+                </div>
+              </a>
+            </article>
+          </div>
+        </section>
+        <!-- 가짜 지원금의 덧 -->
+        <section class="mt-12">
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-6">
+            💸가짜 지원금의 덫
+          </h2>
+          <div
+            class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 scrollbar-hide"
+          >
+            <article
+              class="relative flex-shrink-0 w-80 lg:w-96 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer group snap-center"
+            >
+              <a href="./deep_detail.html">
+                <div
+                  class="relative w-full h-64 sm:h-72 lg:h-80 bg-cover bg-center"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/29/kuk20250929000376.600x.0.jpg');
+                  "
+                >
+                  <div
+                    class="kuki_img absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                  ></div>
+                  <p
+                    class="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wider opacity-90"
+                  >
+                    KUKI ORIGINAL
+                  </p>
+                </div>
+                <div class="p-4 bg-white dark:bg-neutral-800">
+                  <h3
+                    class="text-xl font-bold leading-tight text-neutral-900 dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    [단독] 中企·소상공인 울리는 ‘정책자금 컨설팅 사기’…석달 만에
+                    151건 적발
+                  </h3>
+                  <p
+                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-400"
+                  >
+                    🍪[가짜 지원금의 덫①]
+                  </p>
+                </div>
+              </a>
+            </article>
+            <article
+              class="relative flex-shrink-0 w-80 lg:w-96 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer group snap-center"
+            >
+              <a href="./deep_detail.html">
+                <div
+                  class="relative w-full h-64 sm:h-72 lg:h-80 bg-cover bg-center"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/30/kuk20250930000355.800x.0.png');
+                  "
+                >
+                  <div
+                    class="kuki_img absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                  ></div>
+                  <p
+                    class="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wider opacity-90"
+                  >
+                    KUKI ORIGINAL
+                  </p>
+                </div>
+                <div class="p-4 bg-white dark:bg-neutral-800">
+                  <h3
+                    class="text-xl font-bold leading-tight text-neutral-900 dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    정책자금 컨설팅 사기, 구조적 한계로 뿌리 근절
+                    난항…규제·법제화 시급
+                  </h3>
+                  <p
+                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-400"
+                  >
+                    🍪[가짜 지원금의 덫②]
+                  </p>
+                </div>
+              </a>
+            </article>
+          </div>
+        </section>
+        <!-- 지금 우리 AI는 -->
+        <section class="mt-12 low">
+          <h2 class="text-3xl font-bold text-neutral-900 dark:text-white mb-6">
+            🖥️지금 우리 AI는
+          </h2>
+          <div
+            class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 scrollbar-hide"
+          >
+            <article
+              class="relative flex-shrink-0 w-80 lg:w-96 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer group snap-center"
+            >
+              <a href="./deep_detail.html">
+                <div
+                  class="kuki_img relative w-full h-64 sm:h-72 lg:h-80 bg-cover bg-center"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/25/kuk20250925000169.800x.9.jpg');
+                  "
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                  ></div>
+                  <p
+                    class="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wider opacity-90"
+                  >
+                    KUKI ORIGINAL
+                  </p>
+                </div>
+                <div class="p-4 bg-white dark:bg-neutral-800">
+                  <h3
+                    class="text-xl font-bold leading-tight text-neutral-900 dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    [단독] 강압·불륜 태그 단 챗봇…‘성 상품화’ 청소년 무방비 노출
+                  </h3>
+                  <p
+                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-400"
+                  >
+                    🍪[지금 우리 AI는 ①]
+                  </p>
+                </div>
+              </a>
+            </article>
+            <article
+              class="relative flex-shrink-0 w-80 lg:w-96 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer group snap-center"
+            >
+              <a href="./deep_detail.html">
+                <div
+                  class="kuki_img relative w-full h-64 sm:h-72 lg:h-80 bg-cover bg-center"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/26/kuk20250926000242.800x.9.jpg');
+                  "
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                  ></div>
+                  <p
+                    class="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wider opacity-90"
+                  >
+                    KUKI ORIGINAL
+                  </p>
+                </div>
+                <div class="p-4 bg-white dark:bg-neutral-800">
+                  <h3
+                    class="text-xl font-bold leading-tight text-neutral-900 dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    ‘채팅·게임’ 규제 사각지대 속 챗봇…지적재산권 침해까지
+                  </h3>
+                  <p
+                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-400"
+                  >
+                    🍪[지금 우리 AI는 ②]
+                  </p>
+                </div>
+              </a>
+            </article>
+            <article
+              class="relative flex-shrink-0 w-80 lg:w-96 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer group snap-center"
+            >
+              <a href="./deep_detail.html">
+                <div
+                  class="kuki_img relative w-full h-64 sm:h-72 lg:h-80 bg-cover bg-center"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/26/kuk20250926000273.800x.0.jpg');
+                  "
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                  ></div>
+                  <p
+                    class="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wider opacity-90"
+                  >
+                    KUKI ORIGINAL
+                  </p>
+                </div>
+                <div class="p-4 bg-white dark:bg-neutral-800">
+                  <h3
+                    class="text-xl font-bold leading-tight text-neutral-900 dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    성인 챗봇 사업자도 지원받나…“언어모델 구분 짓는 ‘허들’ 필요”
+                  </h3>
+                  <p
+                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-400"
+                  >
+                    🍪[지금 우리 AI는③]
+                  </p>
+                </div>
+              </a>
+            </article>
+            <article
+              class="relative flex-shrink-0 w-80 lg:w-96 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] cursor-pointer group snap-center"
+            >
+              <a href="./deep_detail.html">
+                <div
+                  class="kuki_img relative w-full h-64 sm:h-72 lg:h-80 bg-cover bg-center"
+                  style="
+                    background-image: url('https://kukinews.com/data/kuk/image/2025/09/29/kuk20250929000389.800x.0.jpg');
+                  "
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"
+                  ></div>
+                  <p
+                    class="absolute bottom-4 left-4 text-white text-sm font-semibold tracking-wider opacity-90"
+                  >
+                    KUKI ORIGINAL
+                  </p>
+                </div>
+                <div class="p-4 bg-white dark:bg-neutral-800">
+                  <h3
+                    class="text-xl font-bold leading-tight text-neutral-900 dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    AI 강국 비전 ‘그림자’…성 상품화 챗봇 규제 시급
+                  </h3>
+                  <p
+                    class="mt-1 text-sm text-neutral-600 dark:text-neutral-400"
+                  >
+                    🍪[지금 우리 AI는 ④]
+                  </p>
+                </div>
+              </a>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
