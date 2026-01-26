@@ -9,7 +9,7 @@ main {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  height: 470px;
+  height: 400px;
 }
 /* leftBox */
 .main-wrap .main-left {
