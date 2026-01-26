@@ -146,9 +146,10 @@ main .left .top .pic {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 main .left .top .pic img {
-  width: auto;
+  /* width: auto; */
 }
 main .left .top .txt {
   font-size: 20px;
@@ -239,6 +240,9 @@ main .right .reporter_wrap .pic {
   font-size: 0;
   background-repeat: no-repeat;
   background-position: center center;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 main .right .reporter_wrap li:nth-child(odd) .pic {
   background-image: url("../img/feed/face_b.png");
