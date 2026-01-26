@@ -15,7 +15,7 @@ header h1.logo {
   font-size: 0;
   width: 148px;
   height: 27px;
-  background-image: url("/img/feed/feed-logo.png");
+  background-image: url("../img/feed/feed-logo.png");
 }
 
 header .page-wrap {
@@ -217,10 +217,10 @@ main .right .reporter_wrap .pic {
   background-position: center center;
 }
 main .right .reporter_wrap li:nth-child(odd) .pic {
-  background-image: url("/img/feed/face_b.png");
+  background-image: url("../img/feed/face_b.png");
 }
 main .right .reporter_wrap li:nth-child(even) .pic {
-  background-image: url("/img/feed/face_g.png");
+  background-image: url("../img/feed/face_g.png");
 }
 main .right .reporter_wrap .name {
   font-size: 16px;
