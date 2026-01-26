@@ -9,17 +9,24 @@ main {
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  height: 470px;
 }
 /* leftBox */
 .main-wrap .main-left {
   width: 30%;
+}
+.main-wrap .main-left .left-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 }
 .main-wrap .main-left .left-wrap li:not(:last-child) {
   padding-bottom: 15px;
   border-bottom: 1px solid #ccc;
 }
 .main-wrap .main-left .left-wrap li:not(:first-child) {
-  padding-top: 15px;
+  /* padding-top: 15px; */
 }
 .main-wrap .main-left .left-wrap li {
   display: flex;
@@ -37,7 +44,6 @@ main {
 .main-wrap .main-center {
   width: 45%;
   background-color: #ccc;
-  height: 340px;
 }
 .main-wrap .main-center .swiper {
   height: 100%;
@@ -141,12 +147,18 @@ button. {
 .main-wrap .main-right {
   width: 25%;
 }
+.main-wrap .main-right > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 .main-wrap .main-right li:first-child {
   padding-bottom: 45px;
   border-bottom: 1px solid #ccc;
 }
 .main-wrap .main-right li:first-child .tit {
-  font-size: 28px;
+  font-size: 25px;
   font-weight: bold;
   letter-spacing: -0.5px;
   line-height: 1.2;
@@ -588,7 +600,7 @@ button. {
   padding-top: 30px;
 }
 .newsList_6 .left {
-  width: 60%;
+  width: 70%;
 }
 .newsList_6 ul.left li:nth-child(1) {
   padding-bottom: 30px;
@@ -620,7 +632,7 @@ button. {
   color: #626262;
 }
 .newsList_6 .right {
-  width: 40%;
+  width: 30%;
   overflow: hidden;
 }
 .newsList_6 .right .twrap h2 {
@@ -664,7 +676,7 @@ button. {
   flex-shrink: 0;
 }
 .newsList_6 .right .opinion a p {
-  font-size: 20px;
+  font-size: 19px;
 }
 
 /* 일곱번째 영역 */
