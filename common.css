@@ -39,3 +39,21 @@ div.inner {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+._rel {
+  position: relative;
+}
+._abs {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 145px;
+  top: -30px;
+  color: #faa635;
+  border-bottom: 1px solid #faa635;
+  padding: 2px;
+}
+._rel:hover ._abs {
+  opacity: 1;
+}
