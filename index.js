@@ -23,7 +23,8 @@ const swiper1 = new Swiper(".kuki-original-2 .swiper", {
   loop: true,
   slidesPerView: 4.5,
   spaceBetween: 20,
-  speed: 14000,
+  // speed: 14000,
+  speed: 35000,
   autoplay: {
     delay: 0,
     disableOnInteraction: false,
