@@ -255,12 +255,6 @@ main .right .reporter_wrap .pic {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-main .right .reporter_wrap li:nth-child(odd) .pic {
-  background-image: url("../img/feed/face_b.png");
-}
-main .right .reporter_wrap li:nth-child(even) .pic {
-  background-image: url("../img/feed/face_g.png");
-}
 main .right .reporter_wrap .name {
   font-size: 16px;
 }
