@@ -91,16 +91,15 @@ main.top > p {
   color: #030303;
 }
 .content ul.left li .txt_wrap .data {
-  margin-top: 30px;
+  margin-top: 25px;
   font-size: 15px;
-  font-weight: 300;
   color: #000;
 }
 .content ul.left li .txt_wrap .txt {
   margin-top: 20px;
   font-size: 15px;
-  font-weight: 300;
   color: #626262;
+  line-height: 1.5;
 }
 .content .right {
   width: 522px;
