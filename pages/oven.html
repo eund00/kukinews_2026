@@ -9,7 +9,6 @@
       href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
     />
     <link rel="stylesheet" href="../common.css" />
-    <link rel="stylesheet" href="../header.css" />
     <link rel="stylesheet" href="oven.css" />
   </head>
   <body>
@@ -171,7 +170,7 @@
               <img src="../img/oven/project_1.png" alt="" />
             </div>
             <p class="tit">쿠키뉴스X성심당</p>
-            <p>
+            <p class="txt">
               대전의 명물 성심당과 함께 지역 사회의 따뜻한 이야기를 전합니다.
             </p>
           </li>
@@ -180,7 +179,7 @@
               <img src="../img/oven/project_2.png" alt="" />
             </div>
             <p class="tit">쿠키뉴스X매일유업</p>
-            <p>
+            <p class="txt">
               매일유업과 함께 어르신들의 건강한 노년을 응원합니다. '소화가 잘
               되는 우유'캠페인...
             </p>
@@ -190,20 +189,19 @@
               <img src="../img/oven/project_3.png" alt="" />
             </div>
             <p class="tit">쿠키뉴스XTech for Good</p>
-            <p>
+            <p class="txt">
               기술로 사회 문제를 해결하는 스타트업을 조명합니다. 이들의 혁신적인
               솔루션을...
             </p>
           </li>
         </ul>
       </div>
+      <!-- 하단 네비 영역 -->
+      <!--
       <div>
-        <!-- 열번째 영역 (푸터 네비) -->
         <div class="newsList_10">
           <h2>주요 키워드 & 카테고리</h2>
-          <!-- 하단 네비 -->
           <ul>
-            <!-- 정치 -->
             <li>
               <a href="#none">정치</a>
               <ul>
@@ -214,7 +212,6 @@
                 <li><a href="#none">북한</a></li>
               </ul>
             </li>
-            <!-- 경제 -->
             <li>
               <a href="#none">경제</a>
               <ul>
@@ -225,7 +222,6 @@
                 <li><a href="#none">생활경제</a></li>
               </ul>
             </li>
-            <!-- 산업 -->
             <li>
               <a href="#none">산업</a>
               <ul>
@@ -239,7 +235,6 @@
                 <li><a href="#none">속보</a></li>
               </ul>
             </li>
-            <!-- 사회 -->
             <li>
               <a href="#none">사회</a>
               <ul>
@@ -250,7 +245,6 @@
                 <li><a href="#none">환경</a></li>
               </ul>
             </li>
-            <!-- 건강/생활 -->
             <li>
               <a href="#none">건강/생활</a>
               <ul>
@@ -263,7 +257,6 @@
                 <li><a href="#none">여성</a></li>
               </ul>
             </li>
-            <!-- 문화 -->
             <li>
               <a href="#none">문화</a>
               <ul>
@@ -274,7 +267,6 @@
                 <li><a href="#none">뮤지컬·연극</a></li>
               </ul>
             </li>
-            <!-- 스포츠 -->
             <li>
               <a href="#none">스포츠</a>
               <ul>
@@ -291,7 +283,6 @@
                 <li><a href="#none">e-스포츠</a></li>
               </ul>
             </li>
-            <!-- 멀티미디어 -->
             <li>
               <a href="#none">멀티미디어</a>
               <ul>
@@ -299,7 +290,6 @@
                 <li><a href="#none">쿠키영상</a></li>
               </ul>
             </li>
-            <!-- 오피니언 -->
             <li>
               <a href="#none">오피니언</a>
               <ul>
@@ -308,7 +298,6 @@
                 <li><a href="#none">기고</a></li>
               </ul>
             </li>
-            <!-- 전국 -->
             <li>
               <a href="#none">전국</a>
               <ul>
@@ -323,7 +312,6 @@
                 <li><a href="#none">부산울산(동남권)</a></li>
               </ul>
             </li>
-            <!-- K-Contents -->
             <li>
               <a href="#none">K-Contents</a>
               <ul>
@@ -332,7 +320,6 @@
                 <li><a href="#none">섹션지면보기</a></li>
               </ul>
             </li>
-            <!-- 쿠키미디어 브랜드 -->
             <li>
               <a href="#none">쿠키미디어 브랜드</a>
               <ul>
@@ -344,15 +331,31 @@
             </li>
           </ul>
         </div>
-        <div id="footer"></div>
-        <script>
-          fetch("../footer.html")
-            .then((r) => r.text())
-            .then((html) => {
-              document.getElementById("footer").innerHTML = html;
-            });
-        </script>
-      </div>
+      -->
+      <footer>
+        <ul>
+          <li>
+            <a href="#none"
+              ><img
+                style="width: 98px"
+                src="../img/logo.png"
+                alt="쿠키뉴스 제호"
+            /></a>
+          </li>
+          <li>
+            <p>
+              회사소개 | 발행인·편집인 : 한장희 | 고충처리 | 청소년보호정책
+              (책임자:김성일) | 쿠키뉴스 취재보도 가이드라인 | 제호 : 쿠키뉴스 |
+              등록번호 : 서울아00127 | 등록일 : 2005-11-11 | 발행일 : 2004-10-13
+              |<br />
+              주소 : 서울 금천구 가산디지털2로 95 | 대표전화 : 02-852-5110 |
+              팩스 : 02-852-5198 |<br />
+              기사문의 : 02-852-5120 | 방송문의 : 02-852-5103 | 사업및콘텐츠제휴
+              : 02-852-5163 | 광고문의 : 02-852-5160
+            </p>
+          </li>
+        </ul>
+      </footer>
     </div>
   </body>
 </html>

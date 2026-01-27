@@ -131,6 +131,36 @@ main.top > p {
   color: #fff;
   background-color: #faa635;
 }
+/* projects_wrap */
+.projects_wrap {
+  margin-top: 115px;
+}
+.projects_wrap > .tit {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 900;
+}
+.projects_wrap ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 20px;
+  margin-top: 75px;
+}
+.projects_wrap ul li {
+}
+.projects_wrap ul li .img_wrap {
+}
+.projects_wrap ul li .tit {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+.projects_wrap ul li .txt {
+  margin-top: 15px;
+  color: #828282;
+  font-size: 20px;
+  line-height: 28px;
+}
 /* 하단네비게이션 영역 */
 .newsList_10 {
   overflow: hidden;
