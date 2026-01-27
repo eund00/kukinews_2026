@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>국정자원 화재에…사전연명의료의향서 일주일 분량 ‘소실’</title>
+    <title>기사페이지_작업중</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
@@ -13,57 +13,84 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
     />
     <link rel="stylesheet" href="./newspapaer.css" />
+    <link rel="stylesheet" href="../header.css" />
+    <link rel="stylesheet" href="../common.css" />
+    <link rel="stylesheet" href="../nav.css" />
+    <link rel="stylesheet" href="../footer.css" />
   </head>
   <body>
-    <!-- 헤더 및 네비 -->
-    <header>
-      <div class="header">
-        <a href="/">
-          <h1 class="header_logo">
-            <img
-              src="https://kuk.kod.es/data/kuk/upload/save/company/kuk17189345464229.png"
-              alt=""
-            />
+    <header class="header">
+      <!-- 제호 및 광고 -->
+      <div class="header-top">
+        <div class="left">
+          <h1>
+            <a href="#none">
+              쿠키뉴스
+              <img src="img/logo.png" alt="" />
+            </a>
           </h1>
-        </a>
-        <div class="header_banner">
-          <img
-            src="https://kuk.kod.es/data/kuk/upload/save/banner/kuk17603186051625.jpg"
-            alt=""
-          />
+          <ul class="page-wrap">
+            <li><a href="#none" class="active">뉴스</a></li>
+            <li><a href="pages/feed.html">피드</a></li>
+            <li><a href="#none">브랜딩</a></li>
+          </ul>
+        </div>
+        <div class="right">
+          <ul class="log-wrap">
+            <li><a href="pages/log-in.html">로그인</a></li>
+            <li><a href="pages/log-in.html">회원가입</a></li>
+          </ul>
+          <a href="#none">
+            <img
+              src="https://kuk.kod.es/data/kuk/upload/save/banner/kuk17645490525191.gif"
+              alt="광고사진영역"
+            />
+          </a>
         </div>
       </div>
-      <div class="header_nav_warp">
-        <ul class="header_nav">
-          <li>경제</li>
-          <li>산업</li>
-          <li>정치</li>
-          <li>사회</li>
-          <li>생활건강</li>
-          <li>스포츠연예</li>
-          <li>쿠키포토</li>
-          <li>전국</li>
-        </ul>
-        <ul class="header_search">
-          <li class="txt"></li>
-          <li class="icon">
-            <img
-              style="width: 100%"
-              src="   https://cdn-icons-png.flaticon.com/512/2319/2319177.png "
-              alt=""
-            />
-          </li>
-        </ul>
-      </div>
-      <div class="header_nav_warap_2">
-        <ul>
-          <li>쿠키 오리지널</li>
-          <li>오피니언</li>
-          <li>섹션 지면 보기</li>
-          <li>쿠키 여론조사</li>
-        </ul>
-      </div>
     </header>
+    <!-- 글로벌 네비 -->
+    <div class="header-gnb">
+      <!-- 네비 -->
+      <ul class="gnb-wrap">
+        <li><a href="#none">정치</a></li>
+        <li><a href="#none">경제</a></li>
+        <li><a href="#none">산업</a></li>
+        <li><a href="#none">생활건강</a></li>
+        <li><a href="#none">스포츠·연예</a></li>
+        <li><a href="#none">포토</a></li>
+        <li><a href="#none">전국</a></li>
+      </ul>
+      <!-- 검색 및 날짜 -->
+      <div class="right-wrap">
+        <!-- 검색 -->
+        <div class="search-nav">
+          <form id="searchForm">
+            <input type="text" placeholder="" />
+            <button type="button"></button>
+          </form>
+        </div>
+        <!-- 날짜 -->
+        <p class="date">2024년 5월 8일 (수)</p>
+      </div>
+    </div>
+    <!-- 서브 네비 -->
+    <div class="header-snb">
+      <ul>
+        <li>
+          <a href="#none">쿠키 오리지널</a>
+        </li>
+        <li>
+          <a href="#none">오피니언</a>
+        </li>
+        <li>
+          <a href="#none">섹션지면보기</a>
+        </li>
+        <li>
+          <a href="#none">쿠키 여론조사</a>
+        </li>
+      </ul>
+    </div>
     <!-- 상단 광고 -->
     <div class="top_banner">
       <iframe
@@ -202,8 +229,43 @@
               </p>
             </div>
           </div>
-          <div class="left_best" style="margin-top: 20px">
-            <img src="./img/newspaper_7.jpg" alt="" />
+          <div class="left_best">
+            <p class="tit">관련기사</p>
+            <ul>
+              <li>
+                <div class="img">
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/25/kuk20260125000089.800x.9.png"
+                    alt=""
+                  />
+                </div>
+                <p class="txt">
+                  국민연금, 국내주식 투자 늘릴까…“국민 노후자금 동원” 우려도
+                </p>
+              </li>
+              <li>
+                <div class="img">
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/26/kuk20260126000107.800x.0.jpg"
+                    alt=""
+                  />
+                </div>
+                <p class="txt">
+                  코스닥 ‘매수 사이드카’ 발동…지난해 4월 이후 9개월만
+                </p>
+              </li>
+              <li>
+                <div class="img">
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/26/kuk20260126000003.680x.0.jpg"
+                    alt=""
+                  />
+                </div>
+                <p class="txt">
+                  설 차례상 비용 작년보다 소폭 하락, 전통시장서 29만6000원
+                </p>
+              </li>
+            </ul>
           </div>
           <div class="left_hello">
             <div class="img_box">기자 얼굴 사진</div>
@@ -228,63 +290,13 @@
           </div>
           <div class="left_market">
             <p class="txt">
-              이 기사가 좋았다면<br />나만의 스크랩노트에 담아보세요!
+              이 기사가 좋았다면 나만의 스크랩노트에 담아보세요!
             </p>
-            <!-- <a href="./scrap_note.html" class="img_box">
-              <img
-                class="img"
-                src="https://cdn-icons-png.flaticon.com/512/1024/1024824.png"
-                alt=""
-              />
-            </a> -->
             <div id="book_icon" class="book_hover">
-              <img src="./img/kuki_1.png" alt="" />
-              <span class="txt" style="color: #fff">스크랩</span>
+              <!-- <img src="./img/kuki_1.png" alt="" /> -->
+              <p class="close">📗</p>
+              <span class="open">📖</span>
             </div>
-            <script>
-              document.addEventListener("DOMContentLoaded", function () {
-                const bookIcon = document.getElementById("book_icon");
-
-                if (bookIcon) {
-                  bookIcon.addEventListener("click", function () {
-                    window.location.href = "scrap_note.html"; // 해당 파일로 이동
-                  });
-                }
-              });
-            </script>
-            <style>
-              .book_hover {
-                cursor: pointer;
-                width: 55px;
-                height: 55px;
-                padding: 5px;
-                box-sizing: border-box;
-                border-radius: 50%;
-                transform: scale(1.2);
-              }
-              .book_hover img {
-                height: 100%;
-              }
-              .book_hover .txt {
-                position: absolute;
-                top: 15px;
-                left: 0;
-                right: 0;
-                text-align: center;
-                font-weight: bold;
-                color: #fff;
-                display: none;
-              }
-              .book_hover:hover {
-                background-color: #faae41;
-              }
-              .book_hover:hover img {
-                opacity: 0;
-              }
-              .book_hover:hover .txt {
-                display: block;
-              }
-            </style>
           </div>
           <div class="left_think">
             <p class="tit">이 기사 어떻게 생각하세요</p>
@@ -334,16 +346,10 @@
 
           <div class="left_btm_banner">
             <div class="img_box">
-              <iframe
-                src="https://ads.as.criteo.com/delivery/r/afr.php?z=57UCYrNa4uTqnxdTFsRtvg&u=%7C%2BiA1Plth3dLs3wYbHnbHjaI2MmTdTPb3lFeLaowBA3w%3D%7C&c1=s9Ouqadr9POYcgxsyX6iDgz9zjwmLV4jXiNt2cHqoCe5qnjF9voUylStFNDgY9ORY5JgxL_-DWwgQa1s5kcWhdRblO5VL-9khkIm9rd0gv6qmDZwWh-C5rLa9DC722S-FgQT71gZ1i5RFjhf9ealpiXCnfMFrMsfK3uuP6TW32-KuMMH4tOxy99tfmJsheC3CIjvL4O2zW1H8p7SUbrpskg7Piw_PpGufX9dBVoPu6DswQnwVyYpNsIjmX2EC2B2X6vN1IBVPk9xVw7kXzOV7GxCeXRau5aDVwUMIpLhsdMsjv-Hd1RxeAetJ7hIMk4DEVjjD0jYHVhTDqtUJuge7d0KwSaM-pDVizDsj56KCUW4J2c1KEpbNGBh6cMPPG44oBZH_NtS1SIzLWFsa6kDi4LZunG7iy1iDH4IT2MP1p3LCb5sFKWpMM_ORT7Luu6Nacld3eQMrL7Tjj7LaC2AmvgMBSBwNudGmHLfJTImsRNwGCVHs5xkX9oAhOQmpfKB_WB782FlU8G-7olPRBGszIoLvOzaQqQ0YD9WzKoterDBJnsILtiIhw4sYhGLyzrdNdQxnjCZu2gkPWjLYS78yDlzzrixWoEDYbJ9RlcI5Iq-G-FpCabD3gVaDfyZ9f6HUovM_JAfsHkJS8-eF38axQwdp9KxXeZV4OzoexxroEtklNxzRd3ewtmKpRR5Io-3tBhUORW0Ey6m5-YJML1NTQ&ct0=https%3A%2F%2Fkaat.daum.net%2Fad%2Fclick_thirdparty%3Bkyson_version%3D1.0%3Brequest_id%3D2e6a0069-a715-4170-9f99-3ffcd04e741a-twxY%3Badunit_id%3DDAN-u87z9i2in2gp%3Btemplate_seq%3D%3Bsdk_type%3Dweb%3Bmed_dsp_id%3DCRITEO_NEW%3Bbid_id%3D68f737d5e9ff29b196bf737d79d60000%3Bdsp_id%3DCRITEO%3Bhratio%3D%3Bnetwork_type%3DGENERAL%3Bwratio%3D%3Bsdk_version%3D4.34.1%3Bad_type%3DBanner%3Bw%3D300%3Bh%3D250%3Bssp_id%3DKAKAO%3Bdevice_type%3DPC%3Bis_test%3Dfalse%3Bdummy%3D"
-                frameborder="0"
-              ></iframe>
+              <img src="../img/newpaper/left_btm_banner2.jpeg" alt="" />
             </div>
             <div class="img_box">
-              <iframe
-                src="https://ads.as.criteo.com/delivery/r/afr.php?z=57UCYrNa4uTqnxdTFsRtvg&u=%7C%2BiA1Plth3dLs3wYbHnbHjaI2MmTdTPb3lFeLaowBA3w%3D%7C&c1=s9Ouqadr9POYcgxsyX6iDgz9zjwmLV4jXiNt2cHqoCe5qnjF9voUylStFNDgY9ORY5JgxL_-DWwgQa1s5kcWhdRblO5VL-9khkIm9rd0gv6qmDZwWh-C5rLa9DC722S-FgQT71gZ1i5RFjhf9ealpiXCnfMFrMsfK3uuP6TW32-KuMMH4tOxy99tfmJsheC3CIjvL4O2zW1H8p7SUbrpskg7Piw_PpGufX9dBVoPu6DswQnwVyYpNsIjmX2EC2B2X6vN1IBVPk9xVw7kXzOV7GxCeXRau5aDVwUMIpLhsdMsjv-Hd1RxeAetJ7hIMk4DEVjjD0jYHVhTDqtUJuge7d0KwSaM-pDVizDsj56KCUW4J2c1KEpbNGBh6cMPPG44oBZH_NtS1SIzLWFsa6kDi4LZunG7iy1iDH4IT2MP1p3LCb5sFKWpMM_ORT7Luu6Nacld3eQMrL7Tjj7LaC2AmvgMBSBwNudGmHLfJTImsRNwGCVHs5xkX9oAhOQmpfKB_WB782FlU8G-7olPRBGszIoLvOzaQqQ0YD9WzKoterDBJnsILtiIhw4sYhGLyzrdNdQxnjCZu2gkPWjLYS78yDlzzrixWoEDYbJ9RlcI5Iq-G-FpCabD3gVaDfyZ9f6HUovM_JAfsHkJS8-eF38axQwdp9KxXeZV4OzoexxroEtklNxzRd3ewtmKpRR5Io-3tBhUORW0Ey6m5-YJML1NTQ&ct0=https%3A%2F%2Fkaat.daum.net%2Fad%2Fclick_thirdparty%3Bkyson_version%3D1.0%3Brequest_id%3D2e6a0069-a715-4170-9f99-3ffcd04e741a-twxY%3Badunit_id%3DDAN-u87z9i2in2gp%3Btemplate_seq%3D%3Bsdk_type%3Dweb%3Bmed_dsp_id%3DCRITEO_NEW%3Bbid_id%3D68f737d5e9ff29b196bf737d79d60000%3Bdsp_id%3DCRITEO%3Bhratio%3D%3Bnetwork_type%3DGENERAL%3Bwratio%3D%3Bsdk_version%3D4.34.1%3Bad_type%3DBanner%3Bw%3D300%3Bh%3D250%3Bssp_id%3DKAKAO%3Bdevice_type%3DPC%3Bis_test%3Dfalse%3Bdummy%3D"
-                frameborder="0"
-              ></iframe>
+              <img src="../img/newpaper/left_btm_banner2.jpeg" alt="" />
             </div>
           </div>
           <div class="left_coment">
@@ -366,48 +372,200 @@
           <!-- <div style="margin-top: 20px">
             <img style="width: 100%" src="./img/newspaper_11.jpg" alt="" />
           </div> -->
-          <div class="left_many">
-            <div class="many_topBox">
-              <p><span>🔥</span><span>많이 본 기사</span></p>
-            </div>
-            <div style="width: 100%; overflow: hidden">
-              <ul class="many_btmList">
-                <li>
-                  <div class="many_box">
-                    <p class="many_num"><span>1</span></p>
+          <!-- 다섯번째 영역(많이 본 기사) -->
+          <div class="newsList_5">
+            <!-- 
+          260120
+          이미지 정사각형에서 200x200에서
+          세로가 긴 직사각형으로 수정. 200x250
+        -->
+            <!-- 텍스트 영역 -->
+            <h2>많이 본 기사</h2>
+            <!-- 기사 영역 -->
+            <ul>
+              <!-- 1 -->
+              <li>
+                <a href="pages/newpaper.html">
+                  <div class="bg">
+                    <p class="num">1</p>
                   </div>
-                  <p class="many_txt">'살인적' 전세가 폭등, 정부 긴급</p>
-                </li>
-                <li>
-                  <div class="many_box">
-                    <p class="many_num"><span>1</span></p>
-                  </div>
-                  <p class="many_txt">'살인적' 전세가 폭등, 정부 긴급</p>
-                </li>
-                <li>
-                  <div class="many_box">
-                    <p class="many_num"><span>2</span></p>
-                  </div>
-                  <p class="many_txt">
-                    '짜장면 랩소디': 50년 노포의 비밀 레시피
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/15/kuk20260115000298.800x.9.png"
+                    alt="많이 본 기사 이미지 영역"
+                  />
+                </a>
+                <a href="pages/newpaper.html">
+                  <p class="newsText _2">
+                    [속보] ‘이세돌 응원의 힘’…신민준, LG배 결승3국 AI 승률 99%
+                    돌파 [바둑]
                   </p>
-                </li>
-                <li>
-                  <div class="many_box">
-                    <p class="many_num"><span>3</span></p>
+                </a>
+              </li>
+
+              <!-- 2 -->
+              <li>
+                <a href="pages/newpaper.html">
+                  <div class="bg">
+                    <p class="num">2</p>
                   </div>
-                  <p class="many_txt">'닥터 슬럼프' 후속작, 캐스팅 최종 확정</p>
-                </li>
-                <li>
-                  <div class="many_box">
-                    <p class="many_num"><span>4</span></p>
-                  </div>
-                  <p class="many_txt">
-                    조선 시대 군복의 비밀을 찾아서 (다큐멘터
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/15/kuk20260115000194.800x.0.jpg"
+                    alt="많이 본 기사 이미지 영역"
+                  />
+                </a>
+                <a href="pages/newpaper.html">
+                  <p class="newsText _2">
+                    ‘내란 사형 구형’ 尹, 내일 체포방해 선고…8개 재판 중 첫 판단
                   </p>
-                </li>
-              </ul>
-            </div>
+                </a>
+              </li>
+
+              <!-- 3 -->
+              <li>
+                <a href="pages/newpaper.html">
+                  <div class="bg">
+                    <p class="num">3</p>
+                  </div>
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/15/kuk20260115000247.800x.9.png"
+                    alt="많이 본 기사 이미지 영역"
+                  />
+                </a>
+                <a href="pages/newpaper.html">
+                  <p class="newsText _2">
+                    [속보] 이세돌 9단, ‘제자’ 신민준 LG배 결승 현장 깜짝 방문
+                    [바둑]
+                  </p>
+                </a>
+              </li>
+
+              <!-- 4 -->
+              <li>
+                <a href="pages/newpaper.html">
+                  <div class="bg">
+                    <p class="num">4</p>
+                  </div>
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/15/kuk20260115000330.800x.0.jpg"
+                    alt="많이 본 기사 이미지 영역"
+                  />
+                </a>
+                <a href="pages/newpaper.html">
+                  <p class="newsText _2">
+                    쿠팡 보상이용권 기한 3개월 ‘시끌’…“제한 과해” vs “소비 독려”
+                  </p>
+                </a>
+              </li>
+
+              <!-- 5 -->
+              <li>
+                <a href="pages/newpaper.html">
+                  <div class="bg">
+                    <p class="num">5</p>
+                  </div>
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/15/kuk20260115000419.800x.0.jpg"
+                    alt="많이 본 기사 이미지 영역"
+                  />
+                </a>
+                <a href="pages/newpaper.html">
+                  <p class="newsText _2">
+                    네이버·NC 탈락했는데 다시 뽑는다?…정부 ‘국대 AI’ 재도전
+                    카드에 업계 술렁
+                  </p>
+                </a>
+              </li>
+
+              <!-- 6 -->
+              <li>
+                <a href="pages/newpaper.html">
+                  <div class="bg">
+                    <p class="num">6</p>
+                  </div>
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/15/kuk20260115000420.800x.0.jpg"
+                    alt="많이 본 기사 이미지 영역"
+                  />
+                </a>
+                <a href="pages/newpaper.html">
+                  <p class="newsText _2">
+                    용인 반도체, 협력사들은 왜 망설이나 [멈춰선 K-클러스터②]
+                  </p>
+                </a>
+              </li>
+
+              <!-- 7 -->
+              <li>
+                <a href="pages/newpaper.html">
+                  <div class="bg">
+                    <p class="num">7</p>
+                  </div>
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/15/kuk20260115000223.600x.0.jpg"
+                    alt="많이 본 기사 이미지 영역"
+                  />
+                </a>
+                <a href="pages/newpaper.html">
+                  <p class="newsText _2">
+                    민선 8기 전북도 인사, 지역인재 외면 ‘냉혹한 평가’
+                  </p>
+                </a>
+              </li>
+
+              <!-- 8 -->
+              <li>
+                <a href="pages/newpaper.html">
+                  <div class="bg">
+                    <p class="num">8</p>
+                  </div>
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/09/kuk20260109000335.800x.0.jpg"
+                    alt="많이 본 기사 이미지 영역"
+                  />
+                </a>
+                <a href="pages/newpaper.html">
+                  <p class="newsText _2">
+                    아는 맛 무섭진 않지만, 구색 갖춘 한 끼 ‘하트맨’ [쿡리뷰]
+                  </p>
+                </a>
+              </li>
+
+              <!-- 9 -->
+              <li>
+                <a href="pages/newpaper.html">
+                  <div class="bg">
+                    <p class="num">9</p>
+                  </div>
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2025/12/15/kuk20251215000416.800x.0.jpg"
+                    alt="많이 본 기사 이미지 영역"
+                  />
+                </a>
+                <a href="pages/newpaper.html">
+                  <p class="newsText _2">
+                    “모르면 간첩”…시골서도 핫한 ‘IMA’ [알기쉬운 경제]
+                  </p>
+                </a>
+              </li>
+
+              <!-- 10 -->
+              <li>
+                <a href="pages/newpaper.html">
+                  <div class="bg">
+                    <p class="num">10</p>
+                  </div>
+                  <img
+                    src="https://www.kukinews.com/data/kuk/image/2026/01/15/kuk20260115000399.jpg"
+                    alt="많이 본 기사 이미지 영역"
+                  />
+                </a>
+                <a href="pages/newpaper.html">
+                  <p class="newsText _2">
+                    수소차 보급 늘어나는데…‘높은 수소값·충전 인프라’ 발목
+                  </p>
+                </a>
+              </li>
+            </ul>
           </div>
           <div class="lef=t_best" style="margin-top: 20px">
             <img style="width: 100%" src="./img/newspaper_6.jpg" alt="" />
@@ -426,75 +584,162 @@
             />
           </div>
         </div>
-        <!-- 많이 본 기사 등 -->
-        <div class="column_right">
-          <!-- <div class="many_wrap">
-            <p class="manyTit">많이 본 기사</p>
-            <img src="./img/newspaper_1.jpg" alt="" />
-            <ul class="manyList_wrap">
-              <li>
-                세계 3대 에어쇼로 도약한 ‘서울 ADEX 2025’ 개막…우주항공청 첫
-                참여
-              </li>
-              <li>캄보디아 출국 한국인, 매년 2000~3000명씩 안 돌아와</li>
-              <li>
-                ‘1조원’ 정부광고 독점 언론재단, 3년간 광고 컨설팅 건수조차
-                “몰랐다”
-              </li>
-              <li>
-                李대통령 국정 지지율 52.2%, 직전보다 1.3%p↓…1주 만에 다시 하락
-              </li>
-              <li>
-                철도공단, ‘직내괴’ 6년간 34건·근무시간 당근거래…“관리·감독 부실
-                심각”
-              </li>
-              <li>“‘유도탄’처럼 정확하고 효과적”…ESMO 달군 ‘ADC’</li>
-              <li>
-                트럼프 “中과 환상적 협정 맺을 것…안 되면 최대 155%까지 관세
-                인상”
-              </li>
-            </ul>
-          </div> -->
-          <div class="original">
-            <img src="./img/newspaper_13.jpg" alt="" />
-          </div>
-          <div class="writeFor" style="margin-top: 60px">
-            <p
-              class="tit"
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-              "
-            >
-              <span>오피니언</span>
-              <span
-                class="more"
-                style="
-                  font-size: 14px;
-                  color: #ababa3;
-                  font-weight: 300;
-                  cursor: pointer;
-                "
-                >전체보기 ></span
-              >
-              <!-- <style>
-                .writeFor .tit span.more:hover {
-                  text-decoration: underline;
-                }
-              </style> -->
-            </p>
-            <img src="./img/newspaper_16.jpg" alt="" />
-          </div>
-
-          <div class="popular" style="margin-top: 60px">
-            <img src="./img/newspaper_4.jpg" alt="" />
-          </div>
-        </div>
       </div>
       <div>
-        <img style="width: 100%" src="./img/newspaper_9.jpg" alt="" />
-        <img style="width: 100%" src="./img/newspaper_10.jpg" alt="" />
+        <!-- 열번째 영역 (푸터 네비) -->
+        <div class="newsList_10">
+          <h2>주요 키워드 & 카테고리</h2>
+          <!-- 하단 네비 -->
+          <ul>
+            <!-- 정치 -->
+            <li>
+              <a href="#none">정치</a>
+              <ul>
+                <li><a href="#none">정치일반</a></li>
+                <li><a href="#none">국회</a></li>
+                <li><a href="#none">대통령실</a></li>
+                <li><a href="#none">국방/외교</a></li>
+                <li><a href="#none">북한</a></li>
+              </ul>
+            </li>
+            <!-- 경제 -->
+            <li>
+              <a href="#none">경제</a>
+              <ul>
+                <li><a href="#none">경제일반</a></li>
+                <li><a href="#none">금융</a></li>
+                <li><a href="#none">증권</a></li>
+                <li><a href="#none">부동산</a></li>
+                <li><a href="#none">생활경제</a></li>
+              </ul>
+            </li>
+            <!-- 산업 -->
+            <li>
+              <a href="#none">산업</a>
+              <ul>
+                <li><a href="#none">산업일반</a></li>
+                <li><a href="#none">기업·CEO</a></li>
+                <li><a href="#none">IT·과학</a></li>
+                <li><a href="#none">중화학</a></li>
+                <li><a href="#none">자동차</a></li>
+                <li><a href="#none">유통</a></li>
+                <li><a href="#none">중기·벤처</a></li>
+                <li><a href="#none">속보</a></li>
+              </ul>
+            </li>
+            <!-- 사회 -->
+            <li>
+              <a href="#none">사회</a>
+              <ul>
+                <li><a href="#none">사회일반</a></li>
+                <li><a href="#none">사건사고</a></li>
+                <li><a href="#none">교육</a></li>
+                <li><a href="#none">노동</a></li>
+                <li><a href="#none">환경</a></li>
+              </ul>
+            </li>
+            <!-- 건강/생활 -->
+            <li>
+              <a href="#none">건강/생활</a>
+              <ul>
+                <li><a href="#none">건강생활일반</a></li>
+                <li><a href="#none">정책</a></li>
+                <li><a href="#none">건강·의료</a></li>
+                <li><a href="#none">제약·바이오</a></li>
+                <li><a href="#none">복지</a></li>
+                <li><a href="#none">아동·청소년</a></li>
+                <li><a href="#none">여성</a></li>
+              </ul>
+            </li>
+            <!-- 문화 -->
+            <li>
+              <a href="#none">문화</a>
+              <ul>
+                <li><a href="#none">연예일반</a></li>
+                <li><a href="#none">방송</a></li>
+                <li><a href="#none">가요</a></li>
+                <li><a href="#none">영화</a></li>
+                <li><a href="#none">뮤지컬·연극</a></li>
+              </ul>
+            </li>
+            <!-- 스포츠 -->
+            <li>
+              <a href="#none">스포츠</a>
+              <ul>
+                <li><a href="#none">스포츠일반</a></li>
+                <li><a href="#none">해외축구</a></li>
+                <li><a href="#none">해외야구</a></li>
+                <li><a href="#none">배구</a></li>
+                <li><a href="#none">농구</a></li>
+                <li><a href="#none">올림픽</a></li>
+                <li><a href="#none">축구</a></li>
+                <li><a href="#none">야구</a></li>
+                <li><a href="#none">바둑·당구</a></li>
+                <li><a href="#none">게임</a></li>
+                <li><a href="#none">e-스포츠</a></li>
+              </ul>
+            </li>
+            <!-- 멀티미디어 -->
+            <li>
+              <a href="#none">멀티미디어</a>
+              <ul>
+                <li><a href="#none">쿠키포토</a></li>
+                <li><a href="#none">쿠키영상</a></li>
+              </ul>
+            </li>
+            <!-- 오피니언 -->
+            <li>
+              <a href="#none">오피니언</a>
+              <ul>
+                <li><a href="#none">칼럼</a></li>
+                <li><a href="#none">기자수첩</a></li>
+                <li><a href="#none">기고</a></li>
+              </ul>
+            </li>
+            <!-- 전국 -->
+            <li>
+              <a href="#none">전국</a>
+              <ul>
+                <li><a href="#none">대구·경북</a></li>
+                <li><a href="#none">경남</a></li>
+                <li><a href="#none">경기</a></li>
+                <li><a href="#none">인천</a></li>
+                <li><a href="#none">전남</a></li>
+                <li><a href="#none">대전·충남</a></li>
+                <li><a href="#none">강원</a></li>
+                <li><a href="#none">전북</a></li>
+                <li><a href="#none">부산울산(동남권)</a></li>
+              </ul>
+            </li>
+            <!-- K-Contents -->
+            <li>
+              <a href="#none">K-Contents</a>
+              <ul>
+                <li><a href="#none">쿠키 오리지널</a></li>
+                <li><a href="#none">이슈인사이드</a></li>
+                <li><a href="#none">섹션지면보기</a></li>
+              </ul>
+            </li>
+            <!-- 쿠키미디어 브랜드 -->
+            <li>
+              <a href="#none">쿠키미디어 브랜드</a>
+              <ul>
+                <li><a href="#none">쿠키겅강TV</a></li>
+                <li><a href="#none">T.LAB</a></li>
+                <li><a href="#none">쿠키메디컬</a></li>
+                <li><a href="#none">내일로 여행</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div id="footer"></div>
+        <script>
+          fetch("../footer.html")
+            .then((r) => r.text())
+            .then((html) => {
+              document.getElementById("footer").innerHTML = html;
+            });
+        </script>
       </div>
     </main>
   </body>
