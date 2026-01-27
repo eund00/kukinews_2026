@@ -19,27 +19,71 @@
   </head>
   <body>
     <div class="inner">
-      <div id="header"></div>
-      <!-- id=header안에 script로 넣음. 이후 다른 페이지에서 같은 방식으로 불러올 예정. -->
-      <script>
-        fetch("header.html")
-          .then((r) => r.text())
-          .then((html) => {
-            document.getElementById("header").innerHTML = html;
-          });
-      </script>
-
-      <div id="nav"></div>
-      <!-- id=nav script로 넣음. 이후 다른 페이지에서 같은 방식으로 불러올 예정. -->
-      <script>
-        fetch("nav.html")
-          .then((r) => r.text())
-          .then((html) => {
-            document.getElementById("nav").innerHTML = html;
-          });
-      </script>
-      <!-- 아래부터 기사리스트 -->
-      <!-- 첫번째 영역 -->
+      <header class="header">
+        <div class="header-top">
+          <div class="left">
+            <h1>
+              <a href="#none">
+                쿠키뉴스
+                <img src="img/logo.png" alt="" />
+              </a>
+            </h1>
+            <ul class="page-wrap">
+              <li><a href="#none" class="active">뉴스</a></li>
+              <li><a href="pages/feed.html">피드</a></li>
+              <li class="_rel">
+                <a href="pages/oven.html">오븐</a>
+                <span class="_abs">세상의 온도를 높이다</span>
+              </li>
+            </ul>
+          </div>
+          <div class="right">
+            <ul class="log-wrap">
+              <li><a href="pages/log-in.html">로그인</a></li>
+              <li><a href="pages/log-in.html">회원가입</a></li>
+            </ul>
+            <a href="#none">
+              <img src="img/banner.png" alt="광고사진영역" />
+            </a>
+          </div>
+        </div>
+      </header>
+      <div class="header-gnb">
+        <ul class="gnb-wrap">
+          <li><a href="#none">정치</a></li>
+          <li><a href="#none">경제</a></li>
+          <li><a href="#none">산업</a></li>
+          <li><a href="#none">생활건강</a></li>
+          <li><a href="#none">스포츠·연예</a></li>
+          <li><a href="#none">포토</a></li>
+          <li><a href="#none">전국</a></li>
+        </ul>
+        <div class="right-wrap">
+          <div class="search-nav">
+            <form id="searchForm">
+              <input type="text" placeholder="" />
+              <button type="button"></button>
+            </form>
+          </div>
+          <p class="date">2024년 5월 8일 (수)</p>
+        </div>
+      </div>
+      <div class="header-snb">
+        <ul>
+          <li>
+            <a href="#none">쿠키 오리지널</a>
+          </li>
+          <li>
+            <a href="#none">오피니언</a>
+          </li>
+          <li>
+            <a href="#none">섹션지면보기</a>
+          </li>
+          <li>
+            <a href="#none">쿠키 여론조사</a>
+          </li>
+        </ul>
+      </div>
       <main>
         <ul class="main-wrap">
           <!-- 왼쪽 -->
@@ -192,8 +236,6 @@
           </li>
         </ul>
       </main>
-
-      <!-- 두번째 영역 -->
       <div class="newsList_2">
         <!-- 왼쪽 -->
         <ul class="left">
@@ -296,21 +338,15 @@
         </div>
       </div>
     </div>
-
-    <!-- 세번째 영역 (쿠키오리지널) -->
     <div class="bg_black">
       <div class="inner">
-        <!-- 수정 (컬리스타일) -->
         <div class="kuki-original-2">
           <div class="twrap">
             <h2>쿠키오리지널</h2>
             <a href="pages/deep_main.html">전체보기</a>
           </div>
-          <!-- Slider main container -->
           <div class="swiper">
-            <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
-              <!-- Slides -->
               <div class="swiper-slide">
                 <a href="pages/deep_detail.html">
                   <img
@@ -394,18 +430,14 @@
                 </a>
               </div>
             </div>
-            <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
 
-            <!-- If we need navigation buttons -->
             <!-- <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div> -->
 
-            <!-- If we need scrollbar -->
             <div class="swiper-scrollbar"></div>
           </div>
         </div>
-        <!-- 기존 -->
         <!-- <div class="kuki-original">
           <ul>
             <li>
@@ -489,13 +521,9 @@
         </div> -->
       </div>
     </div>
-
-    <!-- 네번째 영역 -->
     <div class="inner">
       <div class="newsList_4">
-        <!-- 왼쪽 기사 -->
         <ul class="left">
-          <!-- 1 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="newsTxt">
@@ -516,7 +544,6 @@
               />
             </a>
           </li>
-          <!-- 2 -->
           <li style="padding-bottom: 0">
             <a href="pages/newpaper.html">
               <div class="newsTxt">
@@ -540,7 +567,6 @@
             </a>
           </li>
         </ul>
-        <!-- 오른쪽 광고 -->
         <ul class="right">
           <li>
             <img
@@ -562,19 +588,9 @@
           </li>
         </ul>
       </div>
-
-      <!-- 다섯번째 영역(많이 본 기사) -->
       <div class="newsList_5">
-        <!-- 
-          260120
-          이미지 정사각형에서 200x200에서
-          세로가 긴 직사각형으로 수정. 200x250
-        -->
-        <!-- 텍스트 영역 -->
         <h2>많이 본 기사</h2>
-        <!-- 기사 영역 -->
         <ul>
-          <!-- 1 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="bg">
@@ -592,8 +608,6 @@
               </p>
             </a>
           </li>
-
-          <!-- 2 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="bg">
@@ -610,8 +624,6 @@
               </p>
             </a>
           </li>
-
-          <!-- 3 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="bg">
@@ -628,8 +640,6 @@
               </p>
             </a>
           </li>
-
-          <!-- 4 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="bg">
@@ -646,8 +656,6 @@
               </p>
             </a>
           </li>
-
-          <!-- 5 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="bg">
@@ -665,8 +673,6 @@
               </p>
             </a>
           </li>
-
-          <!-- 6 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="bg">
@@ -683,8 +689,6 @@
               </p>
             </a>
           </li>
-
-          <!-- 7 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="bg">
@@ -701,8 +705,6 @@
               </p>
             </a>
           </li>
-
-          <!-- 8 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="bg">
@@ -719,8 +721,6 @@
               </p>
             </a>
           </li>
-
-          <!-- 9 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="bg">
@@ -737,8 +737,6 @@
               </p>
             </a>
           </li>
-
-          <!-- 10 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="bg">
@@ -757,12 +755,8 @@
           </li>
         </ul>
       </div>
-
-      <!-- 여섯번째 영역 -->
       <div class="newsList_6">
-        <!-- 왼쪽 기사 -->
         <ul class="left">
-          <!-- 1 -->
           <li>
             <a href="pages/newpaper.html">
               <div class="newsTxt">
@@ -785,7 +779,6 @@
               />
             </a>
           </li>
-          <!-- 2 -->
           <li style="padding-bottom: 0">
             <a href="pages/newpaper.html">
               <div class="newsTxt">
@@ -809,28 +802,12 @@
             </a>
           </li>
         </ul>
-        <!-- 오피니언 -->
         <div class="right">
-          <!-- 텍스트 영역 -->
           <div class="twrap">
             <h2>오피니언</h2>
             <a href="#none">전체보기</a>
           </div>
-          <!-- 리스트 영역 -->
           <ul class="opinion">
-            <!-- 1 -->
-            <li>
-              <a href="pages/newpaper.html">
-                <img
-                  src="https://kuk.kod.es/data/kuk/image/2026/01/22/kuk20260122000144.100x100.0.jpg"
-                  alt="기자 사진 영역"
-                />
-              </a>
-              <a href="pages/newpaper.html">
-                <p>데스크 창 ㅣ AI에 쏠린 성장, 제조업 신음은 안 들리나</p>
-              </a>
-            </li>
-            <!-- 2 -->
             <li>
               <a href="pages/newpaper.html">
                 <img
@@ -842,7 +819,6 @@
                 <p>취재진담 ㅣ ‘원팀’은 같은 속도로 걸어간다</p>
               </a>
             </li>
-            <!-- 3 -->
             <li>
               <a href="pages/newpaper.html">
                 <img
@@ -858,7 +834,6 @@
                 </p>
               </a>
             </li>
-            <!-- 4 -->
             <li>
               <a href="pages/newpaper.html">
                 <img
@@ -876,17 +851,12 @@
           </ul>
         </div>
       </div>
-
-      <!-- 일곱번째 영역 (멀티미디어) -->
       <div class="newsList_7">
-        <!-- 텍스트 영역 -->
         <div class="twrap">
           <h2>멀티미디어</h2>
           <a href="#none">전체보기</a>
         </div>
-        <!-- 기사 영역 -->
         <ul>
-          <!-- 왼쪽 기사 -->
           <li>
             <a
               href="https://youtu.be/_CsTShZmkJ4?si=REr4oRgoV1hKSIn9"
@@ -904,10 +874,8 @@
               </p>
             </a>
           </li>
-          <!-- 오른쪽 기사(4분할) -->
           <li>
             <ul>
-              <!-- 1 -->
               <li>
                 <a href="pages/newpaper.html">
                   <img
@@ -919,7 +887,6 @@
                   </p>
                 </a>
               </li>
-              <!-- 2 -->
               <li>
                 <a
                   href="https://youtu.be/8rWx11vPwkU?si=cKCY7aFzVj6imkyX"
@@ -935,7 +902,6 @@
                   </p>
                 </a>
               </li>
-              <!-- 3 -->
               <li>
                 <a href="pages/newpaper.html">
                   <img
@@ -947,7 +913,6 @@
                   </p>
                 </a>
               </li>
-              <!-- 4 -->
               <li>
                 <a
                   href="https://youtu.be/iTQzsUvdpPc?si=3TWKUTHFErDHAkEv"
@@ -966,8 +931,6 @@
           </li>
         </ul>
       </div>
-
-      <!-- 여덟번째 영역 (성심당 광고배너) -->
       <div class="newsList_8">
         <img src="img/banner-2.png" alt="성심당 배너 이미지" />
         <div class="txt-wrap">
@@ -979,15 +942,12 @@
           </p>
         </div>
       </div>
-
-      <!-- 아홉번째 영역 (전국) -->
       <div class="newsList_9">
         <div class="twrap">
           <h2>전국</h2>
           <a href="#none">전체보기</a>
         </div>
         <ul>
-          <!-- 1 -->
           <li>
             <a href="pages/newpaper.html">
               <img
@@ -1001,7 +961,6 @@
               </a>
             </p>
           </li>
-          <!-- 2 -->
           <li>
             <a href="pages/newpaper.html">
               <img
@@ -1015,7 +974,6 @@
               >
             </p>
           </li>
-          <!-- 3 -->
           <li>
             <a href="pages/newpaper.html">
               <img
@@ -1029,7 +987,6 @@
               >
             </p>
           </li>
-          <!-- 4 -->
           <li>
             <a href="pages/newpaper.html"
               ><img
@@ -1043,7 +1000,6 @@
               >
             </p>
           </li>
-          <!-- 5 -->
           <li>
             <a href="pages/newpaper.html">
               <img
@@ -1057,7 +1013,6 @@
               >
             </p>
           </li>
-          <!-- 6 -->
           <li>
             <a href="pages/newpaper.html">
               <img
@@ -1071,7 +1026,6 @@
               >
             </p>
           </li>
-          <!-- 7 -->
           <li>
             <a href="pages/newpaper.html">
               <img
@@ -1085,7 +1039,6 @@
               >
             </p>
           </li>
-          <!-- 8 -->
           <li>
             <a href="pages/newpaper.html"
               ><img
@@ -1098,13 +1051,9 @@
           </li>
         </ul>
       </div>
-
-      <!-- 열번째 영역 (푸터 네비) -->
       <div class="newsList_10">
         <h2>주요 키워드 & 카테고리</h2>
-        <!-- 하단 네비 -->
         <ul>
-          <!-- 정치 -->
           <li>
             <a href="#none">정치</a>
             <ul>
@@ -1115,7 +1064,6 @@
               <li><a href="#none">북한</a></li>
             </ul>
           </li>
-          <!-- 경제 -->
           <li>
             <a href="#none">경제</a>
             <ul>
@@ -1126,7 +1074,6 @@
               <li><a href="#none">생활경제</a></li>
             </ul>
           </li>
-          <!-- 산업 -->
           <li>
             <a href="#none">산업</a>
             <ul>
@@ -1140,7 +1087,6 @@
               <li><a href="#none">속보</a></li>
             </ul>
           </li>
-          <!-- 사회 -->
           <li>
             <a href="#none">사회</a>
             <ul>
@@ -1151,7 +1097,6 @@
               <li><a href="#none">환경</a></li>
             </ul>
           </li>
-          <!-- 건강/생활 -->
           <li>
             <a href="#none">건강/생활</a>
             <ul>
@@ -1164,7 +1109,6 @@
               <li><a href="#none">여성</a></li>
             </ul>
           </li>
-          <!-- 문화 -->
           <li>
             <a href="#none">문화</a>
             <ul>
@@ -1175,7 +1119,6 @@
               <li><a href="#none">뮤지컬·연극</a></li>
             </ul>
           </li>
-          <!-- 스포츠 -->
           <li>
             <a href="#none">스포츠</a>
             <ul>
@@ -1192,7 +1135,6 @@
               <li><a href="#none">e-스포츠</a></li>
             </ul>
           </li>
-          <!-- 멀티미디어 -->
           <li>
             <a href="#none">멀티미디어</a>
             <ul>
@@ -1200,7 +1142,6 @@
               <li><a href="#none">쿠키영상</a></li>
             </ul>
           </li>
-          <!-- 오피니언 -->
           <li>
             <a href="#none">오피니언</a>
             <ul>
@@ -1209,7 +1150,6 @@
               <li><a href="#none">기고</a></li>
             </ul>
           </li>
-          <!-- 전국 -->
           <li>
             <a href="#none">전국</a>
             <ul>
@@ -1224,7 +1164,6 @@
               <li><a href="#none">부산울산(동남권)</a></li>
             </ul>
           </li>
-          <!-- K-Contents -->
           <li>
             <a href="#none">K-Contents</a>
             <ul>
@@ -1233,7 +1172,6 @@
               <li><a href="#none">섹션지면보기</a></li>
             </ul>
           </li>
-          <!-- 쿠키미디어 브랜드 -->
           <li>
             <a href="#none">쿠키미디어 브랜드</a>
             <ul>
@@ -1245,19 +1183,30 @@
           </li>
         </ul>
       </div>
-      <div id="footer"></div>
-      <script>
-        fetch("footer.html")
-          .then((r) => r.text())
-          .then((html) => {
-            document.getElementById("footer").innerHTML = html;
-          });
-      </script>
+      <footer>
+        <ul>
+          <li>
+            <a href="#none"
+              ><img style="width: 98px" src="img/logo.png" alt="쿠키뉴스 제호"
+            /></a>
+          </li>
+          <li>
+            <p>
+              회사소개 | 발행인·편집인 : 한장희 | 고충처리 | 청소년보호정책
+              (책임자:김성일) | 쿠키뉴스 취재보도 가이드라인 | 제호 : 쿠키뉴스 |
+              등록번호 : 서울아00127 | 등록일 : 2005-11-11 | 발행일 : 2004-10-13
+              |<br />
+              주소 : 서울 금천구 가산디지털2로 95 | 대표전화 : 02-852-5110 |
+              팩스 : 02-852-5198 |<br />
+              기사문의 : 02-852-5120 | 방송문의 : 02-852-5103 | 사업및콘텐츠제휴
+              : 02-852-5163 | 광고문의 : 02-852-5160
+            </p>
+          </li>
+        </ul>
+      </footer>
     </div>
   </body>
   <!-- <script src="slide.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   <script src="index.js"></script>
 </html>
-
-
