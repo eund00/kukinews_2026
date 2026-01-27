@@ -209,7 +209,7 @@ main .right {
   border: 1px solid #b9b9b9;
   padding: 20px 45px;
   box-sizing: border-box;
-  height: 680px;
+  height: 930px;
 }
 
 /* 스크롤바의 폭 너비 */
@@ -258,3 +258,4 @@ main .right .reporter_wrap .pic {
 main .right .reporter_wrap .name {
   font-size: 16px;
 }
+
