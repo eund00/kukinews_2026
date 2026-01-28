@@ -84,6 +84,7 @@ main.top > p {
   flex-basis: auto;
   flex-shrink: 0;
   background-color: #ccc;
+  overflow: hidden;
 }
 .content ul.left li .txt_wrap .tit {
   font-size: 20px;
