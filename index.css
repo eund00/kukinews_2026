@@ -427,7 +427,7 @@ button. {
   overflow: hidden;
   position: relative;
 }
-.kuki-original-2 .pleas {
+/* .kuki-original-2 {
   position: absolute;
   top: 75px;
   left: 5px;
@@ -439,12 +439,12 @@ button. {
   border-radius: 50%;
   cursor: pointer;
   z-index: 2;
-}
-.kuki-original-2 .pleas .plase_message {
+} */
+.kuki-original-2 .plase_message {
   position: absolute;
   display: none;
   z-index: 2;
-  width: 460px;
+  width: 465px;
   font-size: 14px;
   background-color: #fff;
   color: #333;

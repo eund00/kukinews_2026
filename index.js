@@ -34,8 +34,11 @@ const swiper1 = new Swiper(".kuki-original-2 .swiper", {
   allowTouchMove: true,
 });
 
-document.getElementById("plase").addEventListener("click", function () {
-  const message = document.querySelector(".plase_message");
+document.getElementById("pleas").addEventListener("click", function () {
+  const msg = this.querySelector(".plase_message");
 
-  message.style.display = message.style.display === "block" ? "none" : "block";
+  msg.style.display =
+    msg.style.display === "none" || msg.style.display === ""
+      ? "inline-block"
+      : "none";
 });
