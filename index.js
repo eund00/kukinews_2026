@@ -23,7 +23,7 @@ const swiper1 = new Swiper(".kuki-original-2 .swiper", {
   loop: true,
   slidesPerView: 4.5,
   spaceBetween: 20,
-  // speed: 14000,
+  // speed: 2000,
   speed: 35000,
   autoplay: {
     delay: 0,
@@ -32,4 +32,10 @@ const swiper1 = new Swiper(".kuki-original-2 .swiper", {
   freeMode: true,
   freeModeMomentum: false,
   allowTouchMove: true,
+});
+
+document.getElementById("plase").addEventListener("click", function () {
+  const message = document.querySelector(".plase_message");
+
+  message.style.display = message.style.display === "block" ? "none" : "block";
 });

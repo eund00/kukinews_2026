@@ -10,12 +10,12 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
     />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="common.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="common.css" />
   </head>
   <body>
     <div class="inner">
@@ -132,7 +132,7 @@
             <div class="swiper">
               <ul class="swiper-wrapper">
                 <li class="swiper-slide">
-                  <a href="#none">
+                  <a href="pages/newpaper.html">
                     <img
                       src="img/KakaoTalk_20260120_104143358.gif"
                       alt=""
@@ -141,7 +141,7 @@
                   </a>
                 </li>
                 <li class="swiper-slide">
-                  <a href="#none">
+                  <a href="pages/newpaper.html">
                     <img
                       src="https://kukinews.com/data/kuk/image/2026/01/19/kuk20260119000240.800x.0.jpg"
                       alt=""
@@ -149,7 +149,7 @@
                   </a>
                 </li>
                 <li class="swiper-slide">
-                  <a href="#none">
+                  <a href="pages/newpaper.html">
                     <img
                       src="https://kukinews.com/data/kuk/image/2026/01/17/kuk20260117000098.800x.9.jpg"
                       alt=""
@@ -157,7 +157,7 @@
                   </a>
                 </li>
                 <li class="swiper-slide">
-                  <a href="#none">
+                  <a href="pages/newpaper.html">
                     <img src="img/main-newyork.gif" alt="" />
                   </a>
                 </li>
@@ -228,9 +228,12 @@
               </li>
               <!-- 두번째 기사 -->
               <li>
-                <a href="pages/newpaper.html"
-                  >병원–간납사 거래구조 변화 조짐…몰아주기에서 입찰경쟁으로</a
-                >
+                <p>KUKI-PICK</p>
+                <div class="news_box">
+                  <a href="pages/newpaper.html"
+                    >병원–간납사 거래구조 변화 조짐…몰아주기에서 입찰경쟁으로
+                  </a>
+                </div>
               </li>
             </ul>
           </li>
@@ -341,6 +344,18 @@
     <div class="bg_black">
       <div class="inner">
         <div class="kuki-original-2">
+          <div class="pleas" id="plase">
+            <p>!</p>
+            <span class="plase_message">
+              요청사항입니다.<br />
+              <br />
+              1. 슬라이드 기사 최신순으로 10개<br />
+              2. 슬라이드 진행 방향 왼쪽<br />
+              3. 마우스(커서)로 왼쪽,오른쪽 이동 가능하게끔(모바일 동일)<br />
+              4. 마우스 올렸을 때는 멈춘 후, 마우스 뗐을 때 다시 슬라이드
+              진행(모바일 동일)
+            </span>
+          </div>
           <div class="twrap">
             <h2>쿠키오리지널</h2>
             <a href="pages/deep_main.html">전체보기</a>
@@ -430,12 +445,10 @@
                 </a>
               </div>
             </div>
-            <div class="swiper-pagination"></div>
-
+            <!-- <div class="swiper-pagination"></div> -->
             <!-- <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div> -->
-
-            <div class="swiper-scrollbar"></div>
+            <!-- <div class="swiper-scrollbar"></div> -->
           </div>
         </div>
         <!-- <div class="kuki-original">
@@ -816,21 +829,48 @@
                 />
               </a>
               <a href="pages/newpaper.html">
-                <p>취재진담 ㅣ ‘원팀’은 같은 속도로 걸어간다</p>
+                <div class="t_wrap">
+                  <p class="corner">취재진담</p>
+                  <span>|</span>
+                  <p class="name">권혜진</p>
+                </div>
+                <p class="title newsText _2">‘원팀’은 같은 속도로 걸어간다</p>
               </a>
             </li>
             <li>
               <a href="pages/newpaper.html">
                 <img
-                  style="height: 100%"
+                  src="https://kukinews.com/data/kuk/image/2026/01/22/kuk20260122000144.199x283.0.jpg"
+                  alt="기자 사진 영역"
+                />
+              </a>
+              <a href="pages/newpaper.html">
+                <div class="t_wrap">
+                  <p class="corner">데스크창</p>
+                  <span>|</span>
+                  <p class="name">임지혜</p>
+                </div>
+                <p class="title newsText _2">
+                  AI에 쏠린 성장, 제조업 신음은 안 들리나
+                </p>
+              </a>
+            </li>
+            <li>
+              <a href="pages/newpaper.html">
+                <img
                   src="https://kuk.kod.es/data/kuk/image/2026/01/26/kuk20260126000022.222x170.0.jpg"
                   alt="기자 사진 영역"
                 />
               </a>
               <a href="pages/newpaper.html">
-                <p>
-                  기명 기고 ㅣ 개인정보 거버넌스, 근본적 변화가 필요하다
-                  [권태준의 ‘경제법 이야기’]
+                <div class="t_wrap">
+                  <p class="corner">기명 기고</p>
+                  <span>|</span>
+                  <p class="name">권태준</p>
+                </div>
+                <p class="title newsText _2">
+                  개인정보 거버넌스, 근본적 변화가 필요하다 [권태준의 ‘경제법
+                  이야기’]
                 </p>
               </a>
             </li>
@@ -842,13 +882,29 @@
                 />
               </a>
               <a href="pages/newpaper.html">
-                <p>
-                  기고 ㅣ 은퇴는 끝이 아니다…베이비부머의 두 번째 커리어 전략
-                  [WORK & PEOPLE]
+                <div class="t_wrap">
+                  <p class="corner">기고</p>
+                  <span>|</span>
+                  <p class="name">송정희</p>
+                </div>
+                <p class="title newsText _2">
+                  은퇴는 끝이 아니다…베이비부머의 두 번째 커리어 전략 [WORK &
+                  PEOPLE]
                 </p>
               </a>
             </li>
           </ul>
+        </div>
+      </div>
+      <div class="newsList_8">
+        <img src="img/banner-2.png" alt="성심당 배너 이미지" />
+        <div class="txt-wrap">
+          <h3>쿠키뉴스 X 성심당</h3>
+          <p>대전의 명물 성심당과 함께 지역 사회의 따뜻한 이야기를 전합니다.</p>
+          <p>
+            협업을 통해 제작된 특별 빵 판매 수익금의 일부는 지역 아동을 위해
+            기부됩니다.
+          </p>
         </div>
       </div>
       <div class="newsList_7">
@@ -930,17 +986,6 @@
             </ul>
           </li>
         </ul>
-      </div>
-      <div class="newsList_8">
-        <img src="img/banner-2.png" alt="성심당 배너 이미지" />
-        <div class="txt-wrap">
-          <h3>쿠키뉴스 X 성심당</h3>
-          <p>대전의 명물 성심당과 함께 지역 사회의 따뜻한 이야기를 전합니다.</p>
-          <p>
-            협업을 통해 제작된 특별 빵 판매 수익금의 일부는 지역 아동을 위해
-            기부됩니다.
-          </p>
-        </div>
       </div>
       <div class="newsList_9">
         <div class="twrap">

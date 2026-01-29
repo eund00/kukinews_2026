@@ -178,12 +178,21 @@ button. {
   margin-top: 25px;
   font-size: 18px;
   line-height: 1.2;
-  color: #626262;
+  color: #878787;
 }
 .main-wrap .main-right li:last-child {
-  padding-top: 30px;
+  margin-top: 30px;
+}
+.main-wrap .main-right li:last-child > p {
+  text-align: right;
+  color: #ccc;
+  font-size: 18px;
+}
+.main-wrap .main-right li:last-child .news_box {
   font-size: 20px;
   line-height: 1.2;
+  background-color: #f8f5ee;
+  padding: 20px 18px;
 }
 
 /* 두번째 영역 ------------------------ */
@@ -220,6 +229,7 @@ button. {
 .newsList_2 .left .newsTxt p:nth-child(1) {
   font-size: 20px;
   padding-bottom: 30px;
+  font-weight: bold;
 }
 .newsList_2 .left .newsTxt p:nth-child(2) {
   font-size: 15px;
@@ -415,14 +425,43 @@ button. {
   color: #fff;
   padding: 35px 0;
   overflow: hidden;
+  position: relative;
+}
+.kuki-original-2 .pleas {
+  position: absolute;
+  top: 75px;
+  left: 5px;
+  background-color: palevioletred;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+.kuki-original-2 .pleas .plase_message {
+  position: absolute;
+  display: none;
+  z-index: 2;
+  width: 460px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #333;
+  padding: 5px 8px;
+  border-radius: 8px;
+  margin-left: 10px;
+  text-align: left;
+  border: 1px solid #333;
+  line-height: 1.2;
 }
 .kuki-original-2 .twrap {
   margin-bottom: 30px;
 }
 .kuki-original-2 .twrap h2 {
+  position: relative;
   font-size: 25px;
   font-weight: bold;
-  position: relative;
 }
 .kuki-original-2 .twrap h2::after {
   content: "";
@@ -517,6 +556,7 @@ button. {
 .newsList_4 .left .newsTxt p:nth-child(1) {
   font-size: 20px;
   padding-bottom: 30px;
+  font-weight: bold;
 }
 .newsList_4 .left .newsTxt p:nth-child(2) {
   font-size: 15px;
@@ -541,13 +581,13 @@ button. {
 /* 다섯번째영역 */
 .newsList_5 {
   margin-top: 35px;
-  overflow: hidden;
 }
 .newsList_5 > h2 {
   position: relative;
   font-size: 25px;
   color: #faa635;
   font-weight: bold;
+  overflow: hidden;
 }
 .newsList_5 > h2::after {
   content: "";
@@ -574,7 +614,6 @@ button. {
 }
 .newsList_5 > ul li a {
   position: relative;
-  overflow: hidden;
 }
 .newsList_5 > ul li a:nth-child(2) p {
   color: #030303;
@@ -584,8 +623,8 @@ button. {
 }
 .newsList_5 > ul li a .bg {
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: -5px;
+  left: -5px;
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -678,6 +717,10 @@ button. {
 .newsList_6 .right .opinion li:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
+.newsList_6 .right .opinion li .t_wrap {
+  display: flex;
+  column-gap: 10px;
+}
 .newsList_6 .right .opinion a:first-child {
   display: inline-block;
   width: 67px;
@@ -686,17 +729,20 @@ button. {
   border-radius: 50%;
   flex-shrink: 0;
 }
+.newsList_6 .right .opinion a:first-child img {
+  height: 100%;
+}
 .newsList_6 .right .opinion a p {
   font-size: 19px;
 }
 
 /* 일곱번째 영역 */
 .newsList_7 {
-  padding: 35px 0;
-  overflow: hidden;
+  margin-top: 40px;
 }
 .newsList_7 .twrap {
   color: #faa635;
+  overflow: hidden;
 }
 .newsList_7 .twrap h2 {
   font-size: 25px;
@@ -784,6 +830,7 @@ button. {
 /* 여덟번째 영역 */
 .newsList_8 {
   position: relative;
+  margin-top: 50px;
 }
 .newsList_8 .txt-wrap {
   position: absolute;
