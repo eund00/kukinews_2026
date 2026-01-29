@@ -51,11 +51,13 @@
   border-radius: 15px;
   overflow: hidden;
 }
+.article_wrap .article:hover .pic_wrap img {
+  /* filter: drop-shadow(2px 4px 6px #000000af); */
+  transform: scale(1.05);
+  transition-duration: 0.5s;
+}
 .article_wrap .article .pic_wrap img {
   height: 100%;
-}
-.article_wrap .article .pic_wrap img:hover {
-  filter: drop-shadow(2px 4px 6px #000);
 }
 .article_wrap .article .tit {
   margin-top: 25px;
@@ -66,7 +68,7 @@
   overflow: hidden;
   line-height: 1.2;
 }
-.article_wrap .article a {
+.article_wrap .article a.scrap_btn {
   font-size: 20px;
   background-color: orange;
   width: 100%;
@@ -79,21 +81,21 @@
   margin-top: 20px;
   padding: 3px 0;
 }
-.article_wrap .article a span.hidden {
+.article_wrap .article a.scrap_btn span.hidden {
   display: none;
 }
-.article_wrap .article a:hover span.hover {
+.article_wrap .article a.scrap_btn:hover span.hover {
   display: none;
 }
-.article_wrap .article a:hover span.hidden {
+.article_wrap .article a.scrap_btn:hover span.hidden {
   display: inline-block;
 }
-.article_wrap .article a p {
+.article_wrap .article a.scrap_btn p {
   position: relative;
   display: inline;
   margin-left: -30px;
 }
-.article_wrap .article a p span {
+.article_wrap .article a.scrap_btn p span {
   position: absolute;
   top: -2px;
   right: -30px;
@@ -103,14 +105,23 @@
 
 /* 에디터 픽 */
 .editor_wrap .swiper {
-  margin-top: 50px;
+  margin-top: 30px;
 }
-.editor_wrap .swiper .swiper-wrapper .swiper-slide a img {
+.editor_wrap .swiper .swiper-wrapper .swiper-slide .img_wrap {
   height: 380px;
   border-radius: 15px;
+  overflow: hidden;
+}
+.editor_wrap .swiper .swiper-wrapper .swiper-slide a img {
+  height: 100%;
 }
 .editor_wrap .swiper .swiper-wrapper .swiper-slide:hover a img {
-  filter: drop-shadow(2px 4px 6px #000);
+  overflow: hidden;
+}
+.editor_wrap .swiper .swiper-wrapper .swiper-slide:hover a img {
+  /* filter: drop-shadow(2px 4px 6px #000); */
+  transform: scale(1.05);
+  transition-duration: 0.5s;
 }
 .editor_wrap .swiper .swiper-wrapper .swiper-slide a .tit {
   margin-top: 25px;
@@ -174,7 +185,7 @@
 }
 /* 에디터 픽 */
 .editor_wrap {
-  margin-top: 150px;
+  margin-top: 100px;
 }
 .editor_wrap:last-child {
   margin-bottom: 80px;
