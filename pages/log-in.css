@@ -1,0 +1,90 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+/* 텍스트 영역 */
+body .inner-log .txt_wrap {
+  text-align: center;
+}
+body .inner-log .txt_wrap .title {
+  font-weight: bold;
+  font-size: 30px;
+}
+body .inner-log .txt_wrap .sub_title {
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: 20px;
+}
+/* 회원가입 영역 */
+body .inner-log .log_wrap {
+}
+.email_sign {
+  margin-top: 50px;
+  background-color: #faa635;
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+}
+.email_sign:hover {
+  border: 1px solid #faa635;
+  box-sizing: border-box;
+  color: #faa635;
+  background-color: #fff;
+}
+body .inner-log .log_wrap .sign_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 35px;
+  font-size: 18px;
+}
+body .inner-log .log_wrap .sign_wrap .in:hover {
+  text-decoration: underline;
+}
+/* SNS 영역 */
+body .inner-log .log_wrap .sns_wrap {
+  margin-top: 80px;
+}
+body .inner-log .log_wrap .sns_wrap .tit {
+  position: relative;
+  text-align: center;
+  font-size: 18px;
+}
+body .inner-log .log_wrap .sns_wrap .tit::before {
+  content: "";
+  position: absolute;
+  width: 155px;
+  height: 2px;
+  background-color: #dfdfdf;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+body .inner-log .log_wrap .sns_wrap .tit::after {
+  content: "";
+  position: absolute;
+  width: 155px;
+  height: 2px;
+  background-color: #dfdfdf;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+body .inner-log .log_wrap .sns_wrap ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  column-gap: 15px;
+}
+body .inner-log .log_wrap .sns_wrap ul li {
+  width: 50px;
+  cursor: pointer;
+}

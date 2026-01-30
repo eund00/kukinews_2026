@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>쿠키뉴스 - 로그인</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;family=Playfair+Display:wght@700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <style type="text/tailwindcss">
+      :root {
+        --sepia-background: #f7f3e7;
+        --sepia-text: #5a4a3b;
+        --sepia-border: #c8b99e;
+        --sepia-accent: #8b7a60;
+        --google-red: #db4437;
+        --naver-green: #03c75a;
+        --kakao-yellow: #fee500;
+        --facebook-blue: #4267b2;
+      }
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZmlsdGVyIGlkPSJub2lzZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSI+CiAgICA8ZnVybk5vaXNlIHR5cGU9InR1cmJ1bGVuY2UiIGJhc2VmcmVxdWVuY3k9IjAuNiIgbnVtT2N0YXZlcz0iMiIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPgogIDwvZmlsdGVyPgogIDxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiM4QjdBNjAiIGZpbHRlcj0idXJsKCNub2lzZSkiIG9wYWNpdHk9IjAuMDgiLz4KPC9zdmc+");
+        background-repeat: repeat;
+      }
+      .input-vintage {
+        border: none;
+        border-bottom: 1px dashed var(--sepia-accent);
+        background-color: transparent;
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 0;
+        outline: none;
+        box-shadow: none;
+        transition: all 0.2s ease-in-out;
+      }
+      .input-vintage:focus {
+        border-bottom: 2px dashed var(--sepia-text);
+        box-shadow: none;
+        outline: none;
+      }
+      .text-center.mb-10 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .text-center.mb-10 p {
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body class="bg-[var(--sepia-background)] text-[var(--sepia-text)]">
+    <div
+      class="flex flex-col min-h-screen items-center justify-center bg-[var(--sepia-background)] text-[var(--sepia-text)]"
+    >
+      <div class="w-full max-w-sm px-4">
+        <div class="text-center mb-10">
+          <h1
+            class="text-6xl font-bold font-['Playfair_Display'] tracking-normal text-[var(--sepia-text)]"
+          >
+            KUKINEWS
+          </h1>
+          <p style="margin-top: 1rem">
+            세상을 더 맛있게 읽는 방법, 쿠키뉴스 회원가입 🍪
+          </p>
+        </div>
+        <div
+          class="hidden flex-col items-center justify-center text-center space-y-6 py-12 px-6 rounded-lg shadow-xl bg-white bg-opacity-70 border border-[var(--sepia-border)]"
+          id="welcome-screen"
+          style="transition: all 0.5s ease-in-out"
+        >
+          <div class="text-6xl mb-4" id="welcome-icon"></div>
+          <h2 class="text-3xl font-bold" id="welcome-title"></h2>
+          <p class="text-lg text-[var(--sepia-text)]" id="welcome-message"></p>
+          <button
+            class="mt-8 px-6 py-3 rounded-md font-bold transition-colors shadow-lg bg-[var(--sepia-accent)] text-white hover:bg-[var(--sepia-text)]"
+            id="welcome-button"
+            onclick="hideWelcomeScreen()"
+          >
+            쿠키뉴스 시작하기
+          </button>
+        </div>
+        <div id="login-form">
+          <form action="#" class="space-y-6" method="POST">
+            <div>
+              <label class="sr-only" for="username">아이디</label>
+              <input
+                class="w-full py-3 input-vintage text-lg placeholder-[var(--sepia-accent)]"
+                id="username"
+                name="username"
+                placeholder="아이디"
+                required=""
+                type="text"
+              />
+            </div>
+            <div>
+              <label class="sr-only" for="password">비밀번호</label>
+              <input
+                class="w-full py-3 input-vintage text-lg placeholder-[var(--sepia-accent)]"
+                id="password"
+                name="password"
+                placeholder="비밀번호"
+                required=""
+                type="password"
+              />
+            </div>
+            <div>
+              <button
+                class="w-full bg-[var(--sepia-accent)] text-white py-3 rounded-sm font-bold hover:bg-[var(--sepia-text)] transition-colors text-lg tracking-wide"
+                type="submit"
+              >
+                로그인
+              </button>
+            </div>
+          </form>
+          <div
+            class="flex justify-center items-center mt-6 text-base text-[var(--sepia-text)]"
+          >
+            <a class="hover:underline" href="#">비밀번호 찾기</a>
+            <span class="mx-4 font-bold">|</span>
+            <a class="hover:underline" href="#">회원가입</a>
+          </div>
+          <div class="relative mt-10">
+            <div class="absolute inset-0 flex items-center">
+              <div class="w-full border-t border-[var(--sepia-border)]"></div>
+            </div>
+            <div class="relative flex justify-center text-base">
+              <span
+                class="px-2 bg-[var(--sepia-background)] text-[var(--sepia-text)]"
+                >SNS 계정으로 로그인</span
+              >
+            </div>
+          </div>
+          <div
+            class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 justify-items-center"
+          >
+            <button
+              class="flex flex-col items-center space-y-2 group"
+              onclick="showWelcome('google')"
+            >
+              <div
+                class="w-16 h-16 sm:w-14 sm:h-14 rounded-full bg-white flex items-center justify-center border border-[var(--sepia-border)] shadow-md transition-transform group-hover:scale-105"
+              >
+                <img
+                  alt="Google"
+                  class="h-8 w-8 sm:h-7 sm:w-7"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh7cdBRsYOTYh87JJsjjvvU5ZpP6NikncjtTf-5UbOK-joZZaykF9nAo0LEgoXayiqmQDKdvNBKsYxJjnrctsokRdSpm6pEHNSjah_vuD9yeFu_CpqfpBagPWVTM8ZPW_5p_LxmXPN5NVmsAbqRGoxHK3Iv_nu4OHxqB0pjP7dRs-M7IFLDoLUmgO2DQbH-TY7RUrpMah39lXr99WCc2oo2LFFs9RMoiMC30YUOw_Gnsg-AQnp5pS-B_A1Hk4PSM7vRnyM83yXAFc"
+                />
+              </div>
+              <span
+                class="text-sm font-medium text-gray-700 group-hover:text-[var(--google-red)] transition-colors"
+                >Google</span
+              >
+            </button>
+            <button
+              class="flex flex-col items-center space-y-2 group"
+              onclick="showWelcome('naver')"
+            >
+              <div
+                class="w-16 h-16 sm:w-14 sm:h-14 rounded-full bg-[var(--naver-green)] flex items-center justify-center shadow-md transition-transform group-hover:scale-105"
+              >
+                <img
+                  alt="Naver"
+                  class="h-8 w-8 sm:h-7 sm:w-7"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnegJX72Dbtc-a4hj-Cn6ujtLdoUphdG__Gnmg_w4HzgeK-FRPhmrvgGWUscZJE1HK1kX8UO6a7rToT2KTEf2vaBnJYFFaKPtfciuZfy1r2LmWack7m0RgNPOgCW0EMwbm8pcsk0yKRt4Rcc9S5SsdJh17P37mDC_69WeBn_wPH8bN2Earm4OloV92x0mOqXlKzmPIm9PDSk-PbZA2DiqOJ_72vJwQ6O5CIqCXE4E1IzBx3JFCV1Egx2p02Tlt6M4HNmx2dcLSUyY"
+                />
+              </div>
+              <span
+                class="text-sm font-medium text-gray-700 group-hover:text-[var(--naver-green)] transition-colors"
+                >Naver</span
+              >
+            </button>
+            <button
+              class="flex flex-col items-center space-y-2 group"
+              onclick="showWelcome('kakao')"
+            >
+              <div
+                class="w-16 h-16 sm:w-14 sm:h-14 rounded-full bg-[var(--kakao-yellow)] flex items-center justify-center shadow-md transition-transform group-hover:scale-105"
+              >
+                <svg
+                  class="h-8 w-8 sm:h-7 sm:w-7 text-[#3C1E1E]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.477 2 2 6.044 2 11.014c0 3.443 2.215 6.438 5.394 7.824l-1.63 4.904 4.88-2.585c.446.06.902.09 1.356.09 5.523 0 10-4.043 10-9.013C22 6.044 17.523 2 12 2z"
+                  ></path>
+                </svg>
+              </div>
+              <span
+                class="text-sm font-medium text-gray-700 group-hover:text-[#FEE500]"
+                >Kakao</span
+              >
+            </button>
+            <button
+              class="flex flex-col items-center space-y-2 group"
+              onclick="showWelcome('facebook')"
+            >
+              <div
+                class="w-16 h-16 sm:w-14 sm:h-14 rounded-full bg-[var(--facebook-blue)] flex items-center justify-center shadow-md transition-transform group-hover:scale-105"
+              >
+                <img
+                  alt="Facebook"
+                  class="h-8 w-8 sm:h-7 sm:w-7"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuABJGfEgs9wSU5_EVjSAeUW9WZz9aZ2D0mhHpKbaZGRz6Z8a1jCL1bxBLSaoqXkNm9Tt0WZsURnfeadoNok1o8vCP_PsW95LmITIWJ_UB2SJQYFPKcxlFoMUX-4xhHJGFIUnVqxsBtpRIylNGFG1l5BvJGpGBXIoBhZmdH-9KWzhEN6kvVMHcCc7mBocGjVZsW9ScVQIp7-ohw56apTW9Jj9E3jGFbhHPPus-AKqADzRfHfAG2Jf_18zOWcjY6ljKsR4FVnr7PShMw"
+                />
+              </div>
+              <span
+                class="text-sm font-medium text-gray-700 group-hover:text-[var(--facebook-blue)] transition-colors"
+                >Facebook</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function showWelcome(platform) {
+        const loginForm = document.getElementById("login-form");
+        const welcomeScreen = document.getElementById("welcome-screen");
+        const welcomeTitle = document.getElementById("welcome-title");
+        const welcomeMessage = document.getElementById("welcome-message");
+        const welcomeIcon = document.getElementById("welcome-icon");
+        const welcomeButton = document.getElementById("welcome-button");
+        loginForm.classList.add("hidden");
+        welcomeScreen.classList.remove("hidden");
+        welcomeScreen.style.backgroundColor = "";
+        welcomeScreen.style.color = "";
+        welcomeIcon.innerHTML = "";
+        welcomeIcon.style.color = "";
+        welcomeButton.style.backgroundColor = "";
+        welcomeButton.style.color = "";
+        let title = "";
+        let message = "";
+        let iconHtml = "";
+        let iconColor = "";
+        let bgColor = "";
+        let textColor = "";
+        let buttonBg = "";
+        let buttonText = "";
+        switch (platform) {
+          case "google":
+            title = "환영합니다, Google 사용자님!";
+            message = "Google 계정으로 편리하게 맞춤 뉴스를 즐겨보세요.";
+            iconHtml =
+              '<span class="material-symbols-outlined">g_mobiledata</span>';
+            iconColor = "var(--google-red)";
+            bgColor = "#fff";
+            textColor = "var(--sepia-text)";
+            buttonBg = "var(--google-red)";
+            buttonText = "#fff";
+            break;
+          case "naver":
+            title = "환영합니다, Naver 사용자님!";
+            message =
+              "네이버 계정으로 로그인되어 더욱 풍부한 콘텐츠를 제공합니다.";
+            iconHtml =
+              '<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnegJX72Dbtc-a4hj-Cn6ujtLdoUphdG__Gnmg_w4HzgeK-FRPhmrvgGWUscZJE1HK1kX8UO6a7rToT2KTEf2vaBnJYFFaKPtfciuZfy1r2LmWack7m0RgNPOgCW0EMwbm8pcsk0yKRt4Rcc9S5SsdJh17P37mDC_69WeBn_wPH8bN2Earm4OloV92x0mOqXlKzmPIm9PDSk-PbZA2DiqOJ_72vJwQ6O5CIqCXE4E1IzBx3JFCV1Egx2p02Tlt6M4HNmx2dcLSUyY" class="h-10 w-10">'; // Naver logo
+            iconColor = "var(--naver-green)";
+            bgColor = "var(--naver-green)";
+            textColor = "#fff";
+            buttonBg = "#fff";
+            buttonText = "var(--naver-green)";
+            break;
+          case "kakao":
+            title = "환영합니다, Kakao 사용자님!";
+            message = "카카오 계정으로 개인화된 뉴스 피드를 경험해보세요.";
+            iconHtml =
+              '<svg class="h-10 w-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.044 2 11.014c0 3.443 2.215 6.438 5.394 7.824l-1.63 4.904 4.88-2.585c.446.06.902.09 1.356.09 5.523 0 10-4.043 10-9.013C22 6.044 17.523 2 12 2z"></path></svg>';
+            iconColor = "var(--kakao-yellow)";
+            bgColor = "var(--kakao-yellow)";
+            textColor = "#3C1E1E";
+            buttonBg = "#3C1E1E";
+            buttonText = "var(--kakao-yellow)";
+            break;
+          case "facebook":
+            title = "환영합니다, Facebook 사용자님!";
+            message =
+              "Facebook 계정으로 연결되어 더 많은 소식을 받아볼 수 있습니다.";
+            iconHtml =
+              '<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuABJGfEgs9wSU5_EVjSAeUW9WZz9aZ2D0mhHpKbaZGRz6Z8a1jCL1bxBLSaoqXkNm9Tt0WZsURnfeadoNok1o8vCP_PsW95LmITIWJ_UB2SJQYFPKcxlFoMUX-4xhHJGFIUnVqxsBtpRIylNGFG1l5BvJGpGBXIoBhZmdH-9KWzhEN6kvVMHcCc7mBocGjVZsW9ScVQIp7-ohw56apTW9Jj9E3jGFbhHPPus-AKqADzRfHfAG2Jf_18zOWcjY6ljKsR4FVnr7PShMw" class="h-10 w-10">'; // Facebook logo
+            iconColor = "var(--facebook-blue)";
+            bgColor = "var(--facebook-blue)";
+            textColor = "#fff";
+            buttonBg = "#fff";
+            buttonText = "var(--facebook-blue)";
+            break;
+        }
+        welcomeTitle.textContent = title;
+        welcomeMessage.textContent = message;
+        welcomeIcon.innerHTML = iconHtml;
+        welcomeIcon.style.color = iconColor;
+        welcomeScreen.style.backgroundColor = bgColor;
+        welcomeScreen.style.color = textColor;
+        welcomeButton.style.backgroundColor = buttonBg;
+        welcomeButton.style.color = buttonText;
+      }
+      function hideWelcomeScreen() {
+        const loginForm = document.getElementById("login-form");
+        const welcomeScreen = document.getElementById("welcome-screen");
+        welcomeScreen.classList.add("hidden");
+        loginForm.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
