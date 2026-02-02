@@ -75,7 +75,17 @@ main {
 }
 /* 기사 페이지 상단 */
 .paperTxt_wrap {
+  width: 750px;
+  margin: 0 auto;
   padding-bottom: 20px;
+}
+.paperTxt_wrap > ul {
+  margin-top: 20px;
+  padding-left: 10px;
+  border-left: 5px solid #555;
+  color: #9e9999;
+  font-size: 13pt;
+  line-height: 1.4;
 }
 .paperTxt_wrap .cate {
   display: flex;
@@ -85,7 +95,6 @@ main {
 }
 .paperTxt_wrap .tit {
   width: 100%;
-  padding: 0 10px;
   font-size: 36px;
   font-weight: bold;
   line-height: 1.35;
@@ -189,6 +198,11 @@ main {
 }
 .column_left .txt_wrap p.txt {
   padding: 20px 0;
+}
+.column_left .txt_wrap .deskname {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 .column_left .left_hello {
   display: flex;
