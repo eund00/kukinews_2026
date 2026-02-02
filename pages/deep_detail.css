@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+/* header */
 .header-top {
   padding-bottom: 30px;
   border-bottom: 2px solid #000;
@@ -6,6 +10,7 @@
   font-size: 50px;
   font-weight: 900;
 }
+/* top */
 .top_wrap {
   display: flex;
   justify-content: center;
@@ -89,7 +94,6 @@
   height: 40px;
   background-color: #faa635;
 }
-
 /* btm_wrap */
 .btm_wrap {
   margin-top: 50px;
@@ -146,11 +150,9 @@
 .side_wrap li .tit {
   font-size: 13px;
 }
-
 .btm_wrap {
   position: relative;
 }
-
 .left_best {
   margin-top: 20px;
 }
@@ -197,7 +199,6 @@
   line-height: 18pt;
   margin-top: 20px;
 }
-
 .left_hello {
   display: flex;
   justify-content: center;
@@ -279,11 +280,9 @@
   font-size: 0;
   background-image: url(../img/common/book_1.png);
 }
-
 .book_icon:hover {
   background-image: url("../img/common/book_2.png");
 }
-
 .left_think {
   margin: 20px 0;
   padding-top: 20px;
@@ -320,7 +319,6 @@
   width: 860px;
   margin: 0 auto;
 }
-/* 추천기사 */
 .left_pic {
   padding-top: 20px;
   border-top: 2px solid #000;
@@ -372,27 +370,12 @@
   margin: 40px auto;
   text-align: center;
 }
-
-/* 쿠키오리지널2 */
 .kuki-original-2 {
   color: #fff;
   padding: 35px 0;
   overflow: hidden;
   position: relative;
 }
-/* .kuki-original-2 {
-  position: absolute;
-  top: 75px;
-  left: 5px;
-  background-color: palevioletred;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 2;
-} */
 .kuki-original-2 .plase_message {
   position: absolute;
   display: none;
@@ -526,4 +509,8 @@
 }
 .newsList_10 > ul > li > ul li:not(:last-child) {
   margin-bottom: 15px;
+}
+
+.left_bset.border-bottom li {
+  border-bottom: 1px solid #ccc;
 }
