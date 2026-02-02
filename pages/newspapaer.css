@@ -199,7 +199,7 @@ main {
   font-size: 0;
   background-image: url(../img/common/book_1.png);
 }
-.book_icon:hover {
+.book_hover:hover {
   background-image: url("../img/common/book_2.png");
 }
 /* 배너 영역 */
