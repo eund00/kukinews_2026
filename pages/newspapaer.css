@@ -130,7 +130,7 @@ main {
 .column_left .left_hello .img_box {
   width: 90px;
   height: 90px;
-  background-image: url(https://cdn.goenhance.ai/user/2024/07/12/6df8872f-c15e-442f-a4df-caa520c34c77_1.jpg);
+  background-image: url("../img/newpaper/ppl_1.jpg");
   background-position: center center;
   background-size: cover;
   font-size: 0;
@@ -192,29 +192,15 @@ main {
   color: #5b5b5b;
 }
 .book_hover {
-  cursor: pointer;
-  /* border: 1px solid #faae41; */
-  font-size: 45px;
-  width: 65px;
-  height: 65px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #faa635;
   border-radius: 50%;
-  padding-bottom: 5px;
-  box-sizing: border-box;
+  font-size: 0;
+  background-image: url(../img/common/book_1.png);
 }
-.book_hover .open {
-  display: none;
-}
-.book_hover:hover {
-  /* background-color: #faae41; */
-}
-.book_hover:hover .close {
-  display: none;
-}
-.book_hover:hover .open {
-  display: block;
+.book_icon:hover {
+  background-image: url("../img/common/book_2.png");
 }
 /* 배너 영역 */
 .column_left .left_banner {
