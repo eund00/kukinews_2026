@@ -108,8 +108,6 @@ main .ai_best .top_wrap .tit {
 .newsList_10 > ul > li > ul li:not(:last-child) {
   margin-bottom: 15px;
 }
-
-/* 
 main .ai_best .btm_wrap {
   display: grid;
   grid-template-columns: repeat(2, 2fr);
@@ -146,4 +144,4 @@ main .ai_best .btm_wrap li .txt_wrap .txt {
 }
 main .ai_best .btm_wrap li .txt_wrap .txt:hover {
   text-decoration: underline;
-} */
+}
