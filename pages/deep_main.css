@@ -44,6 +44,9 @@
   justify-content: space-between;
   row-gap: 70px;
 }
+.article_wrap .article .deep_article {
+  display: inline-block;
+}
 .article_wrap .article .pic_wrap {
   width: 280px;
   height: 380px;
@@ -97,10 +100,10 @@
 }
 .article_wrap .article a.scrap_btn p span {
   position: absolute;
-  top: -2px;
-  right: -30px;
-  width: 30px;
-  height: 30px;
+  top: -5px;
+  right: -40px;
+  width: 45px;
+  height: 45px;
 }
 
 /* 에디터 픽 */
@@ -263,4 +266,54 @@
 /* footer */
 footer {
   margin-top: 150px;
+}
+
+.editor_wrap .img_wrap {
+  display: inline-block;
+  height: 380px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.editor_wrap .txt-wrap .tit {
+  margin-top: 25px;
+  font-size: 20px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  line-height: 1.2;
+}
+.editor_wrap .txt-wrap .btn {
+  font-size: 20px;
+  background-color: orange;
+  width: 100%;
+  height: 35px;
+  display: inline-block;
+  border-radius: 8px;
+  line-height: 35px;
+  text-align: center;
+  color: #fff;
+  margin-top: 20px;
+  padding: 3px 0;
+}
+.editor_wrap .txt-wrap .btn span.hidden {
+  display: none;
+}
+.editor_wrap .txt-wrap .btn:hover span.hover {
+  display: none;
+}
+.editor_wrap .txt-wrap .btn:hover span.hidden {
+  display: inline-block;
+}
+.editor_wrap .txt-wrap .btn p {
+  position: relative;
+  display: inline;
+  margin-left: -30px;
+}
+.editor_wrap .txt-wrap .btn p span {
+  position: absolute;
+  top: -5px;
+  right: -40px;
+  width: 45px;
+  height: 45px;
 }
