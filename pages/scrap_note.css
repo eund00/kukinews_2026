@@ -2,9 +2,6 @@
   padding-bottom: 30px;
   border-bottom: 2px solid #000;
 }
-
-main {
-}
 main .only_my {
   margin-top: 80px;
 }
@@ -64,7 +61,6 @@ main .only_my .btm_wrap li .txt_wrap .txt:hover {
 main .only_my .btm_wrap li .txt_wrap .data {
   color: #333;
 }
-
 main .ai_best {
   margin-top: 100px;
 }
@@ -84,61 +80,10 @@ main .ai_best .top_wrap .tit {
   font-size: 30px;
   font-weight: bold;
 }
-main .ai_best .btm_wrap {
-  display: grid;
-  grid-template-columns: repeat(2, 2fr);
-  margin-top: 20px;
-  gap: 50px;
-}
-main .ai_best .btm_wrap li {
-  display: flex;
-  column-gap: 20px;
-}
-main .ai_best .btm_wrap li .img_wrap {
-  width: 190px;
-  height: 120px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-radius: 5px;
-}
-main .ai_best .btm_wrap li .img_wrap:hover img {
-  transform: scale(1.2);
-  transition-duration: 500ms;
-}
-main .ai_best .btm_wrap li .txt_wrap {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  padding: 10px 0;
-}
-main .ai_best .btm_wrap li .txt_wrap .txt {
-  font-size: 20px;
-  line-height: 1.2;
-}
-main .ai_best .btm_wrap li .txt_wrap .txt:hover {
-  text-decoration: underline;
-}
-/* 열번째 영역 */
+
 .newsList_10 {
   overflow: hidden;
   margin-top: 200px;
-}
-.newsList_10 h2 {
-  font-size: 25px;
-  font-weight: bold;
-  position: relative;
-  color: #faa635;
-}
-.newsList_10 h2::after {
-  content: "";
-  width: 100%;
-  height: 2px;
-  background-color: #faa635;
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: auto;
-  margin-left: 20px;
 }
 .newsList_10 > ul {
   display: grid;
@@ -163,3 +108,42 @@ main .ai_best .btm_wrap li .txt_wrap .txt:hover {
 .newsList_10 > ul > li > ul li:not(:last-child) {
   margin-bottom: 15px;
 }
+
+/* 
+main .ai_best .btm_wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  margin-top: 20px;
+  gap: 50px;
+}
+main .ai_best .btm_wrap li {
+  display: flex;
+  column-gap: 20px;
+}
+main .ai_best .btm_wrap li .img_wrap {
+  width: 190px;
+  height: 120px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 5px;
+}
+main .ai_best .btm_wrap li .img_wrap img {
+  height: 100%;
+}
+main .ai_best .btm_wrap li .img_wrap:hover img {
+  transform: scale(1.2);
+  transition-duration: 500ms;
+}
+main .ai_best .btm_wrap li .txt_wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 10px 0;
+}
+main .ai_best .btm_wrap li .txt_wrap .txt {
+  font-size: 20px;
+  line-height: 1.2;
+}
+main .ai_best .btm_wrap li .txt_wrap .txt:hover {
+  text-decoration: underline;
+} */
