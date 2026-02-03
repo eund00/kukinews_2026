@@ -371,10 +371,20 @@ body {
   text-align: center;
 }
 .kuki-original-2 {
+  position: relative;
   color: #fff;
   padding: 35px 0;
   overflow: hidden;
   position: relative;
+}
+.kuki-original-2::after {
+  /* content: "";
+  width: 100vw;
+  height: 542.19px;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0; */
 }
 .kuki-original-2 .plase_message {
   position: absolute;
