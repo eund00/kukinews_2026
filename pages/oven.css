@@ -38,6 +38,8 @@ main.top > p {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-position: center;
+  background-size: cover;
 }
 .banner .tit_wrap {
   line-height: 1.5;
