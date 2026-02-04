@@ -113,7 +113,7 @@ main {
 }
 .column_left .txt_wrap p.txt {
   padding: 20px 0;
-  word-break: keep-all;
+  word-break: break-all;
 }
 .column_left .txt_wrap .deskname {
   width: 500px;
