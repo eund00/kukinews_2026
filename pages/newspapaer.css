@@ -117,8 +117,7 @@ main {
 }
 .column_left .txt_wrap .deskname {
   width: 500px;
-  margin: 0 auto;
-  margin-top: 50px;
+  margin: 20px auto;
 }
 .column_left .left_hello {
   display: flex;
@@ -669,4 +668,26 @@ main {
   margin-bottom: 10px;
   line-height: 18pt;
   margin-top: 20px;
+}
+
+.side_wrap {
+  z-index: 99;
+  position: fixed;
+  left: 100px;
+  bottom: 40px;
+  width: 60px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  background-color: #fff;
+}
+.side_wrap li .img_box img {
+  width: 25px;
+}
+.side_wrap li .tit {
+  font-size: 13px;
 }
