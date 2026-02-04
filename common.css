@@ -49,7 +49,7 @@ div.inner {
   right: 0;
   transform: translateX(100%);
   width: auto;
-  bottom: 0px;
+  bottom: -2px;
   color: #faa635;
   padding: 2px;
   font-size: 18px;
