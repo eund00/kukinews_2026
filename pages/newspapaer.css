@@ -113,6 +113,7 @@ main {
 }
 .column_left .txt_wrap p.txt {
   padding: 20px 0;
+  word-break: keep-all;
 }
 .column_left .txt_wrap .deskname {
   width: 500px;
@@ -202,7 +203,6 @@ main {
 .book_hover:hover {
   background-image: url("../img/common/book_2.png");
 }
-/* 배너 영역 */
 .column_left .left_banner {
   border-top: 3px solid #000;
   display: flex;
@@ -242,7 +242,6 @@ main {
 .column_left .left_think .emotion_wrap .emotion_list > p:not(:last-child) {
   padding: 15px 0;
 }
-/* 하단 배너 */
 .left_btm_banner {
   margin: 50px 0;
   display: flex;
