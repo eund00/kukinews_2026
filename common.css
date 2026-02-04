@@ -54,6 +54,7 @@ div.inner {
   padding: 2px;
   font-size: 18px;
   white-space: nowrap;
+  pointer-events: none;
 }
 ._rel:hover ._abs {
   opacity: 1;
@@ -85,6 +86,28 @@ div.inner {
 .header-top .left .page-wrap li:not(:last-child) {
   margin-right: 30px;
   position: relative;
+}
+.header-top .left .page-wrap li:nth-child(2) {
+  position: relative;
+}
+.header-top .left .page-wrap li:nth-child(2)::before {
+  content: "슥- 넘겨 보는 세상 이야기";
+  display: none;
+  position: absolute;
+  color: #faa635;
+  font-size: 18px;
+  bottom: 3px;
+  left: 55px;
+  width: 200px;
+}
+.header-top .left .page-wrap li:nth-child(2):hover::after {
+  left: 260px;
+}
+.header-top .left .page-wrap li:nth-child(2):hover {
+  margin-right: 225px;
+}
+.header-top .left .page-wrap li:nth-child(2):hover::before {
+  display: inline-block;
 }
 .header-top .left .page-wrap li:not(:last-child)::after {
   content: "";
