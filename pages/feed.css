@@ -297,3 +297,23 @@ main .right .reporter_wrap .name {
     row-gap: 10px;
   }
 }
+
+.header-top .left .page-wrap li:nth-child(2)::before {
+  display: inline-block !important;
+}
+.header-top .left .page-wrap li:nth-child(2)::after {
+  left: 265px !important;
+}
+.header-top .left .page-wrap li:nth-child(2)::before {
+  content: ", 슥- 넘겨 보는 세상 이야기";
+  /* display: none; */
+  position: absolute;
+  color: #faa635;
+  font-size: 18px;
+  bottom: 0px;
+  left: 50px;
+  width: 205px;
+}
+.header-top .left .page-wrap li:nth-child(2) {
+  margin-right: 230px !important;
+}
