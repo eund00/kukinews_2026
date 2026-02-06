@@ -207,3 +207,7 @@ main.top > p {
 .newsList_10 > ul > li > ul li:not(:last-child) {
   margin-bottom: 15px;
 }
+
+._rel ._abs {
+  opacity: 1;
+}
