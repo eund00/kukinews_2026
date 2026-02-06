@@ -17,6 +17,13 @@
   </head>
   <body>
     <div class="inner">
+      <!-- <progress
+        id="progress"
+        value="50"
+        min="0"
+        max="100"
+        style="position: fixed"
+      ></progress> -->
       <header class="header">
         <div class="header-top">
           <div class="left">
@@ -78,17 +85,20 @@
               <tr>
                 <th>주의 사항</th>
                 <th style="color: red">
-                  해외 사례와 국내 통계를 바탕으로 한 예측입니다.<br />기술 발전
-                  속도와 정부 정책에 따라<br />고용 충격의 규모가 달라질 수
-                  있음을 유의하세요.
+                  <!-- 해외 사례와 국내 통계를 바탕으로 한 예측입니다. -->
+                  기술 발전 속도와 정부 정책에 따라 <br />고용 충격의 규모가
+                  달라질 수 있음을 유의하세요.
                 </th>
               </tr>
               <tr>
                 <th>섭취방법</th>
                 <th>
-                  기사 초반 글로벌 빅테크 감원 사례와 중반부 한국은행의 통계를
+                  <!-- 기사 초반 글로벌 빅테크 감원 사례와 중반부 한국은행의 통계를
                   연결해, AI발 고용 한파가 한국 시장에 미칠 파괴력을 입체적으로
-                  가늠해 보세요.
+                  가늠해 보세요. -->
+                  기사 초반의 글로벌 빅테크 감원 사례와 중반 한국은행 통계를
+                  연결해, AI발 고용 한파가 한국 시장에 미칠 파괴력을 가늠해
+                  보세요.
                 </th>
               </tr>
               <tr>
@@ -104,7 +114,7 @@
           </ul>
         </div>
       </main>
-      <div class="btm_wrap">
+      <div class="btm_wrap" id="target">
         <div class="paper_wrap">
           <ul class="side_wrap">
             <li>
@@ -772,4 +782,16 @@
           : "none";
     });
   </script>
+  <!-- <script>
+    const progress = document.getElementById("progress");
+    const target = document.getElementById("target");
+
+    function updateProgress() {
+      const scrollTop = target.scrollTop;
+      const scrollHeight = target.scrollHeight - target.clientHeight;
+
+      const percent = (scrollTop / scrollHeight) * 100;
+      progress.value = percent;
+    }
+  </script> -->
 </html>
