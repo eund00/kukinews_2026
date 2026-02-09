@@ -116,7 +116,6 @@ ul.menu li.active {
   background-color: #faa635;
 }
 ul.menu li.active a {
-  font-size: 20px;
   color: #fff;
 }
 ul.menu li:hover {
