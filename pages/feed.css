@@ -271,7 +271,7 @@ main .right .reporter_wrap .name {
   ul.menu li {
     display: none;
   }
-  ul.menu li.mobile {
+  ul.menu li {
     display: block;
   }
   main {
