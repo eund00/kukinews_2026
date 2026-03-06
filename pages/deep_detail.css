@@ -67,7 +67,7 @@ body {
   justify-content: space-between;
   width: 880px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .top_wrap .txt_wrap .sub_title {
   /* margin-top: 40px; */
@@ -600,3 +600,4 @@ body {
 .newsList_5 > ul li a img {
   height: 100%;
 }
+
