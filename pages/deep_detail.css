@@ -96,6 +96,7 @@ body {
   width: 350px;
   text-align: right;
   line-height: 1.2;
+  text-align: left;
 }
 .top_wrap .txt_wrap ul .btm_txt {
   padding-top: 10px;
@@ -600,5 +601,6 @@ body {
 .newsList_5 > ul li a img {
   height: 100%;
 }
+
 
 
