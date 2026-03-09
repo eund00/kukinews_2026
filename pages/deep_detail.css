@@ -83,7 +83,7 @@ body {
   font-weight: bold;
 }
 .top_wrap .txt_wrap table tbody tr {
-  padding: 10px 0;
+  padding: 14px 0;
   display: block;
   border-bottom: 1px solid #ccc;
 }
@@ -600,4 +600,5 @@ body {
 .newsList_5 > ul li a img {
   height: 100%;
 }
+
 
